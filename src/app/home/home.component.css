@@ -1,0 +1,86 @@
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #ffffff; /* Optional: Add a background color */
+}
+
+.content-section {
+  flex: 1;
+  padding: 20px;
+  max-width: 50%;
+}
+
+.content-section h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.content-section h2 {
+  font-size: 1.5em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.content-section p {
+  font-size: 1.2em;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.buttons button {
+  margin: 2px;
+  padding: 10px 20px;
+  font-size: 1em;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #006161;
+  color: white;
+}
+
+.buttons button:hover {
+  background-color: #006161;
+  color: white;
+}
+
+.stats {
+  display: flex;
+  margin-top: 30px;
+}
+
+.stat-item {
+  margin-right: 30px;
+  text-align: center;
+}
+
+.stat-item span {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-item p {
+  font-size: 1em;
+  color: #777;
+}
+
+/* Right Side: Image Section */
+.image-section {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional: Add rounded corners */
+}
+img {
+  border: 2px solid red; /* Highlight the image */
+  width: 100%; /* Ensure it has a size */
+  height: 100%;
+}

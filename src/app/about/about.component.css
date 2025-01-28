@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+  }
+  .about {
+    padding: 2rem;
+    background-color:  var(--background-color);
+  }
+  
+  .about {
+    margin-bottom: 2rem;
+  }

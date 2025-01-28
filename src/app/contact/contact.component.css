@@ -1,0 +1,40 @@
+@media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+  }
+
+  .contact {
+    padding: 2rem;
+    background-color: var(--background-color);
+  }
+  
+  .contact {
+    margin-bottom: 2rem;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  input, textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .sendbtndiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+#sendbtn{
+  font-variant: small-caps;
+  padding: 8px 50px;
+  color: white;
+  background-color: #006161;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 18px;
+}
