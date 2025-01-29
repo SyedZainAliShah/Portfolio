@@ -1,5 +1,5 @@
-
 body {
+ 
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@ body {
   }
   
   header {
-    background-color: var(--primary-color);
+    background-color: black;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -20,7 +20,7 @@ body {
   }
   
   nav a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;

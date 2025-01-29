@@ -1,9 +1,12 @@
 .home-container {
+  background-image: url('/assets/background.jpg') ;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 50px;
-  background-color: #ffffff; /* Optional: Add a background color */
 }
 
 .content-section {
@@ -19,13 +22,13 @@
 
 .content-section h2 {
   font-size: 1.5em;
-  color: #555;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
 .content-section p {
   font-size: 1.2em;
-  color: #777;
+  color: #ffffff;
   margin-bottom: 30px;
 }
 
@@ -37,12 +40,12 @@
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  background-color: #006161;
+  background-color: #000000;
   color: white;
 }
 
 .buttons button:hover {
-  background-color: #006161;
+  background-color: #1c1c1c;
   color: white;
 }
 
@@ -59,12 +62,12 @@
 .stat-item span {
   font-size: 2em;
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
 }
 
 .stat-item p {
   font-size: 1em;
-  color: #777;
+  color: #ffffff;
 }
 
 /* Right Side: Image Section */
@@ -72,15 +75,10 @@
   flex: 1;
   padding: 20px;
   text-align: center;
+  overflow: hidden;
 }
 
 .image-section img {
   max-width: 100%;
-  height: auto;
-  border-radius: 10px; /* Optional: Add rounded corners */
-}
-img {
-  border: 2px solid red; /* Highlight the image */
-  width: 100%; /* Ensure it has a size */
-  height: 100%;
+  border-radius: 10px;
 }
