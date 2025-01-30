@@ -6,13 +6,31 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 50px;
+  padding: 20px 50px 0px 50px;
 }
-
+/* .desc{
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 2rem;
+  backdrop-filter: blur(10px);
+} */
+.intro{
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  width: fit-content;
+  block-size: fit-content;
+}
 .content-section {
   flex: 1;
-  padding: 20px;
+  padding: 20px 0px 20px 20px;
   max-width: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
 }
 
 .content-section h1 {
@@ -73,7 +91,7 @@
 /* Right Side: Image Section */
 .image-section {
   flex: 1;
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
   text-align: center;
   overflow: hidden;
 }

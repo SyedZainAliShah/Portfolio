@@ -7,6 +7,21 @@ import { Project } from './projects.model';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
+  getTagClass(tag: string): string {
+    const formattedTag = tag.toLowerCase().replace(/\s+/g, '-');
+    return `${formattedTag} tag-item`; 
+  }
+  getIconClass(tag: string): string {
+    const iconMap: { [key: string]: string } = {
+      'React': 'fab fa-react',
+      'Node.js': 'fab fa-node',
+      'MongoDB': 'fas fa-database',
+      'Java': 'fab fa-java',
+      'TensorFlow': 'fas fa-brain',
+      // Add more mappings as needed
+    };
+    return iconMap[tag] || 'fas fa-code';
+  }
   projects: Project[] = [
     {
       title: 'Pineapple',

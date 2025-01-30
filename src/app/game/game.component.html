@@ -1,1 +1,14 @@
-<p>game works!</p>
+<!-- mini-game.component.html -->
+<div class="game-container">
+    <div class="game-header">
+      <h3>Click the Cookie! 🎮</h3>
+      <div class="score">Score: {{ score }}</div>
+    </div>
+    
+    <div class="cookie-container">
+      <div class="cookie" (click)="incrementScore()">
+        🍪
+        <div class="click-animation"></div>
+      </div>
+    </div>
+  </div>
