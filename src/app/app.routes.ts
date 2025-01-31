@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
-import { MiniGameComponent } from './mini-game/mini-game.component';
 
 // Define the routes
 export const routes: Routes = [
@@ -11,6 +10,5 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'mini-game', component: MiniGameComponent },
   { path: '**', redirectTo: '' } // Redirect to home for unknown routes
 ];

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { MiniGameComponent } from '../mini-game/mini-game.component'; 
 
 @Component({
   selector: 'app-home',
-  imports: [MiniGameComponent],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

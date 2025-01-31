@@ -1,14 +1,42 @@
-<section class="contact">
-  <h2 style="color: #006161; font-size: 2rem;">Contact Me</h2>
-  <form>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" required></textarea>
-    <div class="sendbtndiv">
-     <button id="sendbtn" type="submit" class="btn">Send</button>
-    </div> 
-  </form>
+<section class="contact-section">
+  <div class="contact-container">
+    <h2 class="contact-title">Let's Chat! 💬</h2>
+    
+    <div class="contact-wrapper">
+      <div class="floating-shape shape1"></div>
+      <div class="floating-shape shape2"></div>
+      <div class="floating-shape shape3"></div>
+
+      <form class="contact-form">
+        <div class="input-group">
+          <input type="text" id="name" required>
+          <label for="name">Name</label>
+          <div class="icon-bubble">
+            <svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/></svg>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="email" id="email" required>
+          <label for="email">Email</label>
+          <div class="icon-bubble">
+            <svg viewBox="0 0 24 24"><path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/></svg>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <textarea id="message" rows="4" required></textarea>
+          <label for="message">Your Message</label>
+          <div class="icon-bubble">
+            <svg viewBox="0 0 24 24"><path d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M6,9H18V11H6M14,14H6V12H14M18,8H6V6H18"/></svg>
+          </div>
+        </div>
+
+        <button type="submit" class="send-button">
+          Launch Message 🚀
+          <div class="button-hover-effect"></div>
+        </button>
+      </form>
+    </div>
+  </div>
 </section>
