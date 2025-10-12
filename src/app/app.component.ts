@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { ContactComponent } from './contact/contact.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule],
+  imports: [   
+    HomeComponent, 
+    AboutComponent, 
+    ProjectsComponent, 
+    ContactComponent,
+    RouterModule
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

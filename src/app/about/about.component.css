@@ -1,255 +1,106 @@
+/* =================================== */
+/* ==      BASE & GLOBAL STYLES     == */
+/* =================================== */
 .about-section {
-  padding: 2rem;
+  padding: 4rem 2rem;
   background: #f8f9fa;
   font-family: 'Segoe UI', sans-serif;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 .main-title {
-  font-size: 2.5rem;
-  color: #006161;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #003d3d;
   margin-bottom: 0.5rem;
 }
 
 .location-tag {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   color: #6c757d;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  background-color: #e9ecef;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #003d3d;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+/* =================================== */
+/* ==       SKILLS SECTION          == */
+/* =================================== */
+.skills-card {
+  margin-bottom: 4rem;
 }
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
 .tech-item {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
   padding: 1rem;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .tech-item:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.07);
 }
 
 .tech-item i {
   font-size: 1.8rem;
   color: #006161;
 }
-
-.section-title{
-  color: #006161;
+.tech-item span {
+  font-weight: 500;
+  color: #343a40;
 }
 
 
+/* =================================== */
+/* ==    BIO & EDUCATION SECTION    == */
+/* =================================== */
 .bio-section {
-  /* display: grid; */
+  display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-  margin: 3rem 0;
+  gap: 3rem;
+  margin: 4rem 0;
+  align-items: flex-start;
 }
 
 .bio-text {
-  line-height: 1.7;
+  line-height: 1.8;
   color: #495057;
+  font-size: 1.05rem;
   margin-bottom: 1.5rem;
 }
 
-.university-badges {
+.education-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.badge {
-  padding: 1.5rem;
-  background: white;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-}
-
-.university-logo {
-  width: 120px;
-  height: auto;
-  margin: 0 auto 1rem;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.badge:hover .university-logo {
-  transform: scale(1.05);
-}
-
-
-.location-gallery {
-  margin: 3rem 0;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.gallery-item {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  aspect-ratio: 1;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.gallery-item:hover {
-  transform: translateY(-5px);
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 97, 97, 0.8);
-  color: white;
-  width: 100%;
-  padding: 0.8rem 0rem;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-
-.routine-section {
-  background: white;
-  padding: 2rem;
-  border-radius: 16px;
-  margin: 3rem 0;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
-}
-
-.routine-timeline {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.routine-item {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.routine-item:hover {
-  transform: translateY(-5px);
-}
-
-.routine-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.routine-time {
-  color: #006161;
-  font-weight: 600;
-  margin: 0.5rem 0;
-}
-
-.passion-card {
-  display: flex;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 2rem;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
-}
-
-.passion-image img {
-  border-radius: 12px;
-  height: 100%;
-  object-fit: cover;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.stat-item {
-  background: rgba(0, 97, 97, 0.08);
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.stat-number {
-  color: #006161;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-
-@media (max-width: 768px) {
-  .bio-section {
-    grid-template-columns: 1fr;
-  }
-  
-  .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .passion-card {
-    grid-template-columns: 1fr;
-  }
-  
-  .routine-timeline {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .tech-grid,
-  .gallery-grid,
-  .routine-timeline {
-    grid-template-columns: 1fr;
-  }
-  
-  .main-title {
-    font-size: 2rem;
-  }
-  
-  .passion-card {
-    padding: 1rem;
-  }
-}
-
-.education-section {
-  margin: 3rem 0;
-  display: flex;
-  justify-content: space-evenly;
   gap: 1.5rem;
 }
 
@@ -257,83 +108,26 @@
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: transform 0.3s ease;
 }
 
-.degree-link:hover {
-  transform: translateY(-3px);
-}
-
-.degree-link:focus {
-  outline: 2px solid #006161;
-  outline-offset: 2px;
-  border-radius: 12px;
-}
-
-.degree-link:hover .degree-title {
-  color: #006161;
-}
-
-.degree-link:hover .university-name::after {
-  width: 100%;
-}
-
-.degree-link:hover .university-icon {
-  transform: scale(1.1);
-}
 .degree-card {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
+  border: 1px solid #e9ecef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.degree-card:hover {
-  transform: none; 
-  cursor: pointer;
-}
-.degree-card:hover .university-name::after {
-  width: 100%;
-}
-.degree-card:hover .university-icon {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 97, 97, 0.2);
+.degree-link:hover .degree-card {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 97, 97, 0.08);
 }
 
 .degree-header {
+  display: flex;
   align-items: center;
   gap: 1.5rem;
-}
-
-.degree-header i {
-  font-size: 2rem;
-  color: #006161;
-  width: 50px;
-  text-align: center;
-}
-
-.degree-title {
-  margin: 0;
-  color: #002626;
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.university-name {
-  position: relative;
-  display: inline-block;
-}
-
-.university-name::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #006161;
-  transition: width 0.3s ease;
+  margin-bottom: 1rem;
 }
 
 .university-icon {
@@ -341,17 +135,26 @@
   height: 50px;
   object-fit: contain;
   border-radius: 8px;
-  padding: 5px;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+}
+
+.degree-title {
+  margin: 0;
+  color: #002626;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.university-name {
+  color: #555;
+  font-size: 0.9rem;
 }
 
 .degree-details {
   display: flex;
-  gap: 2rem;
-  border-top: 2px solid #f1f3f5;
-  padding-top: 1.2rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem; /* Row and column gap */
+  border-top: 1px solid #e9ecef;
+  padding-top: 1rem;
 }
 
 .detail-item {
@@ -359,26 +162,266 @@
   align-items: center;
   gap: 0.6rem;
   color: #555;
+  font-size: 0.9rem;
 }
 
 .detail-item i {
   color: #006161;
-  width: 20px;
+}
+
+/* =================================== */
+/* ==      LOCATION GALLERY         == */
+/* =================================== */
+.location-gallery {
+  margin: 4rem 0;
   text-align: center;
 }
 
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
 
-@media (max-width: 768px) {
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  /* As requested, leaving this section as is */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 2rem 1rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* =================================== */
+/* ==      ROUTINE SECTION          == */
+/* =================================== */
+.routine-section {
+  margin: 4rem 0;
+}
+
+.routine-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.routine-item {
+  padding: 1.5rem;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.routine-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+}
+
+.routine-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.routine-time {
+  color: #006161;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.routine-text {
+  font-size: 0.95rem;
+  color: #495057;
+}
+
+/* =================================== */
+/* ==      PASSION SECTION          == */
+/* =================================== */
+.passion-card {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e9ecef;
+}
+
+.passion-image img {
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+}
+
+.passion-text {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #495057;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.stat-item {
+  background: #f1f3f5;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.stat-item:hover {
+  background-color: #e9ecef;
+  transform: scale(1.1);
+}
+
+.stat-number i {
+  color: #006161;
+  font-size: 1.5rem;
+}
+
+
+/* ============================================= */
+/* ==   MOBILE REDESIGN (TABLET & MOBILE)     == */
+/* ============================================= */
+@media (max-width: 992px) {
+  
+  /* ... other mobile styles for .bio-section, .passion-card, etc. ... */
+
+  /* --- NEW & IMPROVED Education Cards for Mobile --- */
+  .education-section {
+    gap: 2rem; /* More space between the two university cards */
+  }
+
+  .degree-card {
+    padding: 1.5rem; /* More internal padding for breathing room */
+    text-align: left;
+  }
+
+  .degree-header {
+    gap: 1.25rem; /* More space between icon and text */
+  }
+
+  .university-icon {
+    width: 60px;   /* Make the university logo larger */
+    height: 60px;
+  }
+
+  .degree-title {
+    font-size: 1.4rem; /* Significantly larger title */
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .university-name {
+    font-size: 1rem;   /* Larger, more readable university name */
+    color: #495057;
+  }
+
   .degree-details {
-    flex-direction: column;
-    gap: 1rem;
+    padding-top: 1.25rem;
+    margin-top: 1.25rem;
+    gap: 1rem; /* More space between detail items */
   }
   
+  .detail-item {
+    font-size: 1rem; /* Increase detail font size */
+    gap: 0.75rem;
+  }
+  
+  .detail-item i {
+    font-size: 1.1rem; /* Make icons slightly larger */
+  }
+
+  /* ... other mobile styles ... */
+}
+
+  /* --- Stacking Major Layouts --- */
+  .bio-section, .passion-card {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .passion-card {
+    text-align: center;
+  }
+
+  .passion-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .stats-grid {
+    justify-content: center;
+  }
+
+  /* --- Redesigned Education Cards for Mobile --- */
+  .degree-card {
+    padding: 1.25rem;
+  }
+
   .degree-header {
     gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* --- Photo Gallery (Tablet View) --- */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .degree-title {
-    font-size: 1.3rem;
+  /* --- Redesigned Routine Section for Mobile --- */
+  .routine-timeline {
+    grid-template-columns: 1fr 1fr; /* Two columns for a neat look */
+  }
+  
+  .routine-item {
+    padding: 1.25rem;
+  }
+}
+
+/* --- Final Polish for Smallest Mobile Screens --- */
+@media (max-width: 480px) {
+  .tech-grid, .routine-timeline {
+    grid-template-columns: 1fr; /* Single column for very narrow screens */
   }
 }
