@@ -234,3 +234,18 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* === Override Browser Autofill Styles === */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    /* Use a box-shadow to override the background color */
+    box-shadow: 0 0 0px 1000px hsl(216deg 8.2% 11.96%) inset;
+
+    /* Force the text color to be your desired color */
+    -webkit-text-fill-color: #f0f0f0;
+
+    /* Optional: A hack to delay the browser's style application */
+    transition: background-color 5000s ease-in-out 0s;
+}

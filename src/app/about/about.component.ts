@@ -71,8 +71,8 @@ export class AboutComponent implements AfterViewInit {
 
   languages = [
     { name: 'English', proficiency: 'Full Professional Proficiency' },
-    { name: 'Urdu', proficiency: 'Native Speaker' },
-    { name: 'German', proficiency: 'Basic Conversational' }
+    { name: 'German', proficiency: 'Basic Conversational' },
+    { name: 'Urdu', proficiency: 'Native Speaker' }
   ];
 
   hobbies = [
