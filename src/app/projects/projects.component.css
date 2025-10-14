@@ -26,7 +26,7 @@
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 1.5rem;
 }
 
@@ -134,7 +134,8 @@
   opacity: 1;
   transform: translateY(0);
 }
-/* === Responsive Design === */
+
+
 @media (max-width: 768px) {
   .projects-section {
     padding: 3rem 1rem;
@@ -144,14 +145,9 @@
     font-size: 2.25rem;
   }
 
-  /*
-   * === THE KEY FIX ===
-   * Change the display model to flexbox on mobile for a guaranteed vertical stack.
-  */
   .project-grid {
     display: flex;
     flex-direction: column;
-    /* The 'gap' property works for flexbox too! */
   }
 
   .project-card {
