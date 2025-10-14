@@ -1,17 +1,9 @@
-/* General Body Styles (assumed from context, add if you don't have them) */
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .home-container {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center; 
-  padding: 2rem; /* Default padding for desktop */
+  justify-content: center;
+  padding: 2rem;
   min-height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
@@ -31,7 +23,7 @@ body, html {
   padding: 3rem 4rem;
   transition: all 0.3s ease-out;
 }
-/* Wrapper for all text elements */
+
 .text-content {
   display: flex;
   flex-direction: column;
@@ -39,8 +31,6 @@ body, html {
   max-width: 450px;
 }
 
-
-/* Typography (largely unchanged) */
 .text-content h1 {
   font-size: 2.8rem;
   font-weight: 700;
@@ -69,7 +59,6 @@ body, html {
     color: #f0f0f0;
 }
 
-/* Buttons (unchanged) */
 .buttons {
   display: flex;
   gap: 1rem;
@@ -96,7 +85,6 @@ body, html {
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Update this existing rule */
 .profile-image-container {
   position: absolute;
   top: 36%;
@@ -130,21 +118,50 @@ body, html {
   50% { transform: scale(1.05); opacity: 0.4; }
 }
 
-@media (max-width: 1024px) {
+/* === Fade-In Animation Rules === */
+.profile-card, .profile-image-container, .text-content > h1, .text-content > h2, .text-content > p, .buttons {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+}
+.profile-card, .text-content > h1, .text-content > h2, .text-content > p, .buttons {
+  animation-name: fadeInUp;
+}
+.profile-image-container {
+  animation-name: fadeInUpWithTransform;
+}
+.profile-card { animation-delay: 1s; }
+.profile-image-container { animation-delay: 1.2s; }
+.text-content > h1 { animation-delay: 1.4s; }
+.text-content > h2 { animation-delay: 1.6s; }
+.text-content > p.desc { animation-delay: 1.8s; }
+.buttons { animation-delay: 2s; }
+
+@keyframes fadeInUpWithTransform {
+  from { opacity: 0; transform: var(--final-transform) translateY(20px); }
+  to { opacity: 1; transform: var(--final-transform); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* === Tablet View (Specific Range) === */
+@media (min-width: 769px) and (max-width: 1024px) {
   .profile-card {
     flex-direction: column;
     padding: 2rem;
     padding-top: 140px;
     margin-top: 140px;
-    max-width: 500px; /* This is good for tablets */
+    max-width: 500px;
   }
-
   .text-content {
     align-items: center;
     text-align: center;
     max-width: 100%;
   }
-
   .profile-image-container {
     top: 0;
     left: 50%;
@@ -154,130 +171,51 @@ body, html {
     width: 280px;
     height: 280px;
   }
-
   .buttons {
     justify-content: center;
   }
 }
 
-
+/* === Mobile View === */
 @media (max-width: 768px) {
-  .profile-card {
-    margin-top: 120px;
-    padding-top: 120px;
-    
-    /* THE FIX: Set a percentage width and override the max-width */
-    width: 90%;
-    max-width: none; /* This removes the 500px limit from the tablet style */
+  .home-container {
+    padding: 0;
   }
-
+  .profile-card {
+    width: 100%;
+    min-height: 100vh;
+    max-width: none;
+    border-radius: 0;
+    border: none;
+    margin-top: 0;
+    padding: 120px 1.5rem 2rem 1.5rem;
+    justify-content: center;
+    box-sizing: border-box;
+  }
   .profile-image-container {
     width: 240px;
     height: 240px;
   }
-
   .text-content h1 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
-
   .text-content h2 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
-
+  .text-content p.desc {
+    font-size: 1.1rem;
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .buttons {
     flex-direction: column;
     width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
   }
-
   .buttons a, .buttons button {
     width: 100%;
-  }
-}
-/* New animation specifically for the profile image */
-@keyframes fadeInUpImage {
-  from {
-    opacity: 0;
-    /* Starts 20px lower than its final centered position */
-    transform: translateY(-50%) translateY(20px); 
-  }
-  to {
-    opacity: 1;
-    /* Ends perfectly centered */
-    transform: translateY(-50%);
-  }
-}
-/* === Fade-In Animation on Load (Fully Responsive) === */
-
-/* Prepare all elements for animation */
-.profile-card,
-.profile-image-container,
-.text-content > h1,
-.text-content > h2,
-.text-content > p,
-.buttons {
-  opacity: 0; 
-  animation-fill-mode: forwards;
-  animation-duration: 0.8s;
-  animation-timing-function: ease-out;
-}
-
-/* Apply the GENERIC animation */
-.profile-card,
-.text-content > h1,
-.text-content > h2,
-.text-content > p,
-.buttons {
-  animation-name: fadeInUp; 
-}
-
-/* Apply the SMART animation to the image */
-.profile-image-container {
-  animation-name: fadeInUpWithTransform; /* Use the new variable-based animation */
-}
-
-/* Stagger the start times (no changes here) */
-.profile-card {
-  animation-delay: 1s;
-}
-.profile-image-container {
-  animation-delay: 1.2s;
-}
-.text-content > h1 {
-  animation-delay: 1.4s;
-}
-.text-content > h2 {
-  animation-delay: 1.6s;
-}
-.text-content > p.desc {
-  animation-delay: 1.8s;
-}
-.buttons {
-  animation-delay: 2s;
-}
-
-/* --- Don't forget to keep your original fadeInUp animation for the other elements --- */
-/* A single, flexible animation for the image container */
-@keyframes fadeInUpWithTransform {
-  from {
-    opacity: 0;
-    /* It reads the variable and adds the slide-up effect */
-    transform: var(--final-transform) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    /* It settles at the correct position defined by the variable */
-    transform: var(--final-transform);
-  }
-}
-
-/* The simple animation for everything else (no change here) */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

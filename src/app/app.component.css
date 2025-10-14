@@ -1,12 +1,36 @@
+@property --orange-stop {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 41%;
+}
+
+@property --blue-stop {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 52%;
+}
 main {
   margin: 0;
   min-height: 100vh;
   position: relative;
   isolation: isolate;
-  background: radial-gradient(circle at 50% 119%, #f27b01 41%, #5792bb 52%, #000000 72%) fixed;
   overflow-x: hidden;
-}
 
+  /* Define the variables we will animate */
+  --orange-stop: 41%;
+  --blue-stop: 52%;
+
+  /* Rebuild the gradient using the variables */
+  background: radial-gradient(
+    circle at 50% 119%,
+    #f27b01 var(--orange-stop),
+    #5792bb var(--blue-stop),
+    #000000 72%
+  ) fixed;
+
+  /* Apply the animation */
+  animation: breathe 12s ease-in-out infinite;
+}
 main::before {
   content: '';
   position: fixed;
@@ -103,5 +127,13 @@ footer {
   }
   .footer-text .separator {
     display: none;
+  }
+}
+
+@keyframes breathe {
+  /* At the halfway point, the color stops will expand */
+  50% {
+    --orange-stop: 45%;
+    --blue-stop: 58%;
   }
 }
