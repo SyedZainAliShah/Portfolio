@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { Project } from './projects.model';
 
 @Component({
@@ -10,12 +11,15 @@ export class ProjectsComponent implements AfterViewInit {
   @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
   private observer!: IntersectionObserver;
 
+  // 2. ADD A CONSTRUCTOR to inject the platform ID
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+
   // Helper to format tags for CSS classes
   getTagClass(tag: string): string {
     return tag.toLowerCase().replace(/[^a-z0-9]/g, '-');
   }
 
-  // Updated projects array with a relevant Font Awesome icon for each
   projects: Project[] = [
     {
       title: 'Pineapple',
@@ -62,7 +66,10 @@ export class ProjectsComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit() {
-    this.setupIntersectionObserver();
+    // 3. WRAP THE LOGIC in a platform check
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupIntersectionObserver();
+    }
   }
 
   private setupIntersectionObserver() {
@@ -77,7 +84,6 @@ export class ProjectsComponent implements AfterViewInit {
       });
     }, options);
 
-    // Stagger the animation for the header and each card
     this.animatedElements.forEach((el, index) => {
       (el.nativeElement as HTMLElement).style.transitionDelay = `${index * 100}ms`;
       this.observer.observe(el.nativeElement);

@@ -37,6 +37,7 @@
           },
           "configurations": {
             "production": {
+              "deployUrl": "/Portfolio/", 
               "budgets": [
                 {
                   "type": "initial",

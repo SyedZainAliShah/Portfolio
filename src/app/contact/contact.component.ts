@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, AfterViewInit, ViewChildren, QueryList, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -9,8 +10,14 @@ export class ContactComponent implements AfterViewInit {
   @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
   private observer!: IntersectionObserver;
 
+  // A constructor is added to inject the platform ID
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngAfterViewInit() {
-    this.setupIntersectionObserver();
+    // This check ensures the animation code only runs in a browser
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupIntersectionObserver();
+    }
   }
 
   private setupIntersectionObserver() {

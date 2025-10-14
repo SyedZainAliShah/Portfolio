@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +9,8 @@ import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef } from '@
 export class AboutComponent implements AfterViewInit {
   @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
   private observer!: IntersectionObserver;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   professionalSummary = "A highly ambitious Software Engineer with a proven track record of designing and developing scalable, data-intensive applications. My expertise is in building high-performance features and creating effortless, pixel-perfect user experiences. I thrive on taking full ownership of projects, from shaping frontend architecture to deployment, and am eager to contribute to a company that values both craftsmanship and high-impact results.";
 
@@ -83,7 +86,9 @@ export class AboutComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit() {
-    this.setupIntersectionObserver();
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupIntersectionObserver();
+    }
   }
 
   private setupIntersectionObserver() {
