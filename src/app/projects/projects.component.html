@@ -1,43 +1,38 @@
-<section class="projects">
-  <h2>My Projects</h2>
+<section class="projects-section">
+  <div class="projects-header" #animatedElement>
+    <h1>My Projects</h1>
+    <p class="subtitle">A selection of projects that showcase my skills and interests in solving real-world problems.</p>
+  </div>
+
   <div class="project-grid">
     @for (project of projects; track project.title) {
-    <div class="project-card">
-      <!-- Image Container -->
-      <!-- <div class="image-container">
-        <img [src]="project.imageUrl" [alt]="project.title" class="project-image">
-      </div> -->
-      
-      <div class="card-content">
-        <!-- Title Section -->
-        <div class="title-section">
-          <h3 class="project-title">{{ project.title }}</h3>
-          <div class="title-underline"></div>
+      <!-- Card is an anchor tag, making the whole thing clickable -->
+      <a [href]="project.projectUrl"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="project-card"
+         #animatedElement
+         [attr.aria-label]="'View project: ' + project.title">
+
+        <div class="card-header">
+          <div class="project-icon">
+            <i [class]="project.icon"></i>
+          </div>
+          <!-- The link indicator now uses the GitHub icon -->
+          <div class="link-indicator">
+            <i class="fab fa-github"></i>
+          </div>
         </div>
-
-        <!-- Description -->
-        <p class="project-description">{{ project.description }}</p>
-
-        <!-- Technology Tags -->
-        <div class="project-tags">
-          @for (tag of project.tags; track tag) {
-          <span class="tag" [class]="getTagClass(tag)">
-            {{ tag }}
-          </span>
-          }
+        <div class="card-content">
+          <h3>{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          <div class="project-tags">
+            @for (tag of project.tags; track tag) {
+            <span class="tag" [class]="getTagClass(tag)">{{ tag }}</span>
+            }
+          </div>
         </div>
-
-        <!-- Project Link -->
-        @if (project.projectUrl) {
-        <a [href]="project.projectUrl" target="_blank" class="project-link">
-          Github
-          <svg class="arrow-icon" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
-          </svg>
-        </a>
-        }
-      </div>
-    </div>
+      </a>
     }
   </div>
 </section>

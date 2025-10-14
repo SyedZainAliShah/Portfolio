@@ -1,196 +1,100 @@
 <section class="about-section">
-  <div class="about-container">
-    <div class="profile-header">
-      <h1 class="main-title">Get to Know Me! 👋</h1>
-      <div class="location-tag">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>Karachi → Marburg</span>
+  <div class="summary-section" #animatedElement>
+    <div class="summary-header">
+      <h1>Software Engineer & Lifelong Learner</h1>
+    </div>
+    <p class="summary-text">{{ professionalSummary }}</p>
+  </div>
+
+  <div class="experience-section">
+    <h2 class="section-title" #animatedElement>
+      <i class="fas fa-briefcase"></i> Professional Experience
+    </h2>
+    <div class="experience-timeline">
+      @for (job of experience; track job.role + job.company) {
+        <div class="job-item" #animatedElement>
+          <div class="timeline-dot"></div>
+          <div class="job-header">
+            <h3>{{ job.role }}</h3>
+            <span class="job-period">{{ job.period }}</span>
+          </div>
+          <p class="job-company">{{ job.company }}</p>
+          <ul class="job-points">
+            @for (point of job.points; track point) {
+              <li>{{ point }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="sidebar-grid">
+    <div class="sidebar-card skills-card" #animatedElement>
+      <div class="skills-list">
+        @for (skill of skills; track skill.category) {
+          <div class="skill-item">
+            <h5>{{ skill.category }}</h5>
+            <p>{{ skill.list }}</p>
+          </div>
+        }
       </div>
     </div>
-    
-    <div class="skills-card">
-      <h2 class="section-title">
-        <i class="fas fa-laptop-code"></i> Core Technologies
-      </h2>
-      <div class="tech-grid">
-        <div class="tech-item">
-          <i class="fab fa-html5"></i>
-          <span>HTML5</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-css3-alt"></i>
-          <span>CSS3/SASS</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-js-square"></i>
-          <span>JavaScript (ES6+)</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-angular"></i>
-          <span>Angular</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-java"></i>
-          <span>Java</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-cloud"></i>
-          <span>REST APIs</span>
-        </div>
-      </div>
-    </div>
 
-    
-    <div class="bio-section">
-      <div class="bio-content">
-        <h2 class="section-title">
-          <i class="fas fa-user-graduate"></i> Frontend-Focused Developer
-        </h2>
-        <p class="bio-text">
-          Hi, I’m Syed Zain Ali Shah—a software engineer passionate about building impactful products. Originally from Karachi, I graduated from FAST NUCES, one of Pakistan’s top universities, and am now pursuing my Master’s in Computer Science at Philipps-Universität Marburg, Germany.
-
-My professional experience at GhangorCloud, a Silicon Valley cybersecurity firm, involved developing user analytics features with Angular and optimizing backend systems with Java Spring Boot. My projects, from a MERN e-commerce site to a YOLOv4-powered trash detection system, reflect my drive to solve real-world problems.
-
-Outside of coding, I enjoy gardening and am excited to combine my love for tech and sustainability, potentially by developing AI-driven environmental solutions. If you’re into building cool things, let’s connect!
-        <p class="bio-text">If you’re into building cool things—tech, gardens, or anything in between—let’s connect!</p>
-      </div>
-
-      
+    <div class="sidebar-card personal-info-card" #animatedElement>
       <div class="education-section">
-        <a href="https://www.uni-marburg.de" 
-     class="degree-link"
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Visit Philipps-Universität Marburg website">
-        <div class="degree-card">
-          <div class="degree-header">
-            <img src="assets/marburg.png" alt="Marburg University" class="university-icon">
-            <div>
-              <h3 class="degree-title">MSc Computer Science</h3>
-              <p class="university-name">Philipps-Universität Marburg</p>
+        <div class="education-list">
+          @for (edu of education; track edu.degree) {
+            <div class="education-item">
+              <img [src]="edu.logoUrl" [alt]="edu.university + ' logo'" class="university-logo">
+              <div class="education-info">
+                <h4>{{ edu.degree }}</h4>
+                <p>{{ edu.university }}</p>
+                <span>{{ edu.period }}</span>
+              </div>
             </div>
-          </div>
-          <div class="degree-details">
-            <div class="detail-item">
-              <i class="fas fa-calendar-alt"></i>
-              <span>2024 - Present</span>
-            </div>
-            <div class="detail-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Marburg, Germany</span>
-            </div>
-          </div>
+          }
         </div>
-      </a>
-
-        <a href="https://www.nu.edu.pk" 
-        class="degree-link"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Visit FAST NUCES website">
-        <div class="degree-card">
-          <div class="degree-header">
-            <img src="assets/fast.png" alt="FAST NUCES" class="university-icon">
-            <div>
-              <h3 class="degree-title">BSc Computer Science</h3>
-              <p class="university-name">FAST NUCES</p>
-            </div>
-          </div>
-          <div class="degree-details">
-            <div class="detail-item">
-              <i class="fas fa-calendar-alt"></i>
-              <span>2018 - 2022</span>
-            </div>
-            <div class="detail-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Karachi, Pakistan</span>
-            </div>
-          </div>
-        </div>
-        </a>
       </div>
-    </div>
 
-    <div class="location-gallery">
-      <h2 class="section-title"><i class="fas fa-city"></i> My Marburg Moments</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="assets/city.jpg" alt="Old Town">
-          <div class="overlay">Historic Old Town</div>
+      <div class="card-divider"></div>
+
+      <div class="languages-section">
+        <div class="languages-list">
+          @for (lang of languages; track lang.name) {
+            <div class="language-item">
+              <span class="lang-name">{{ lang.name }}</span>
+              <span class="lang-proficiency">{{ lang.proficiency }}</span>
+            </div>
+          }
         </div>
-        <div class="gallery-item">
-          <img src="assets/buildings.jpg" alt="University">
-          <div class="overlay">Campus Views</div> 
-        </div>
-        <div class="gallery-item">
-          <img src="assets/lahn.jpg" alt="Cafe">
-          <div class="overlay">Study Spot</div>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/street.jpg" alt="Park">
-          <div class="overlay">Relaxation Zone</div>
+      </div>
+
+      <div class="card-divider"></div>
+
+      <div class="hobbies-section">
+        <div class="hobbies-list">
+            @for (hobby of hobbies; track hobby.name) {
+                <div class="hobby-item">
+                    <i [class]="hobby.icon"></i>
+                    <span>{{ hobby.name }}</span>
+                </div>
+            }
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="routine-section">
-      <h2 class="section-title"><i class="fas fa-coffee"></i> A Day in My Life</h2>
-      <div class="routine-timeline">
-        <div class="routine-item">
-          <div class="routine-icon">🌅</div>
-          <div class="routine-time">7:00 AM</div>
-          <div class="routine-text">Breakfast and a quick run</div>
+  <div class="passion-section" #animatedElement>
+    <img src="assets/comiccon.jpg" alt="Comic Convention event" class="passion-image">
+    <div class="passion-content">
+        <h3>Passion Project: GeekCon Pakistan</h3>
+        <p>I co-organize Pakistan’s biggest comic convention, creating a space for fans and creators to connect. This journey blends creativity, community, and a shared passion for pop culture.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/geekhaven.pk" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/GeekHaven" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com/geekhavensociety" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
         </div>
-        <div class="routine-item">
-          <div class="routine-icon">📚</div>
-          <div class="routine-time">9:00 AM</div>
-          <div class="routine-text">University Lectures</div>
-        </div>
-        <div class="routine-item">
-          <div class="routine-icon">🌱</div>
-          <div class="routine-time">1:00 PM</div>
-          <div class="routine-text">Gardening Break</div>
-        </div>
-        <div class="routine-item">
-          <div class="routine-icon">🏋️‍♂️</div>
-          <div class="routine-time">5:00 PM</div>
-          <div class="routine-text">Workout or Bouldering with friends!</div>
-        </div>
-        <div class="routine-item">
-          <div class="routine-icon">💡</div>
-          <div class="routine-time">8:00 PM</div>
-          <div class="routine-text">Coding Session before Bed</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="passion-card">
-      <div class="passion-image">
-        <img width="400px" height="400px" src="assets/comiccon.jpg" alt="Comic Convention">
-      </div>
-      <div class="passion-content">
-        <h2 class="section-title">🚀 Passion Project: ComicCon Pakistan</h2>
-        <p class="passion-text">
-          I have a deep love for storytelling, pop culture, and community building. Along with my friends, I co-organize Pakistan’s biggest comic convention, creating a space where fans, artists, and creators can connect and celebrate their favorite worlds. Bringing these events to life has been an incredible journey—one that blends creativity, collaboration, and a shared passion for comics, gaming, and pop culture.
-        </p>
-        <div class="stats-grid">
-          <a href="">
-            <div class="stat-item">
-              <div class="stat-number"><i class="fa-brands fa-instagram"></i></div>
-            </div>
-          </a>
-          <a href="">
-            <div class="stat-item">
-              <div class="stat-number"><i class="fa-brands fa-twitter"></i></div>
-            </div>
-          </a>
-          <a href="">
-            <div class="stat-item">
-              <div class="stat-number"><i class="fa-brands fa-facebook"></i></div>
-            </div>
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </section>

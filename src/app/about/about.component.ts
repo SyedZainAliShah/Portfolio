@@ -1,11 +1,105 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-about',
-  imports: [],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrls: ['./about.component.css']
 })
-export class AboutComponent {
-  description = "A software engineer with a passion for turning ideas into functional, impactful products. Originally from Karachi, Pakistan, I grew up in a lively city that shaped my love for problem-solving and adaptability. Being the youngest of three brothers, I’ve always had great role models to look up to, which fueled my drive to carve out my own path. I graduated from FAST NUCES, one of Pakistan’s top universities, where I learned how to survive intense coding marathons and mastered the art of debugging at 3 a.m. Currently, I’m pursuing my Master’s in Computer Science at Philipps-Universität Marburg, Germany, continuing my journey of exploring new technologies and growing my expertise. Professionally, I’ve worked at GhangorCloud, a cybersecurity firm based in Silicon Valley, where I developed user analytics features, built visually rich interfaces with Angular, and optimized backend systems with Java Spring Boot. I’ve also had fun experimenting with projects like a YOLOv4-powered trash detection system, a MERN-stack e-commerce website, and even a 3D Pong game. These experiences have taught me that software development isn’t just about coding—it’s about solving real-world problems and creating experiences people love. When I’m not coding, you’ll probably find me gardening. There’s something incredibly rewarding about growing plants—it’s like debugging, but with sunlight and water. One of my dreams is to combine my love for tech and sustainability, maybe by developing AI-driven solutions for environmental challenges. So, whether it’s building apps, diving into AI, or simply growing the perfect tomatoes, I’m always excited to create and learn something new."
+export class AboutComponent implements AfterViewInit {
+  @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
+  private observer!: IntersectionObserver;
+
+  professionalSummary = "A highly ambitious Software Engineer with a proven track record of designing and developing scalable, data-intensive applications. My expertise is in building high-performance features and creating effortless, pixel-perfect user experiences. I thrive on taking full ownership of projects, from shaping frontend architecture to deployment, and am eager to contribute to a company that values both craftsmanship and high-impact results.";
+
+  experience = [
+    {
+      role: 'Software Engineer',
+      company: 'GhangorCloud (Cybersecurity)',
+      period: '03/2023 – 03/2024',
+      points: [
+        'Realized complex application features for a user analytics platform using Angular and TypeScript, from prototyping to programming.',
+        'Developed dynamic, visually rich dashboards to visualize complex backend data, focusing on an efficient and intuitive user experience.',
+        'Collaborated in an agile team to design and modernize UI/UX components, ensuring code quality through cross-functional reviews.',
+        'Refactored a modular monolith backend with Java Spring Boot to improve scalability and maintainability.'
+      ]
+    },
+    {
+      role: 'Associate Software Engineer',
+      company: 'GhangorCloud',
+      period: '09/2022 – 02/2023',
+      points: [
+        'Programmed new features for existing solutions, including responsive data visualization components in Angular.',
+        'Enhanced application performance and stability by optimizing frontend logic and resolving long-standing bugs.',
+        'Improved styling and layout for data-centric applications using Bootstrap CSS for a more polished and usable interface.'
+      ]
+    },
+    {
+      role: 'Product Management Intern',
+      company: 'SphereWMS - Shispare',
+      period: '07/2021 – 09/2021',
+      points: [
+        'Translated client needs into actionable development tasks by managing the product backlog and defining sprint goals.',
+        'Facilitated agile ceremonies to improve team alignment and ensure on-time feature delivery.',
+        'Designed detailed flowcharts and wireframes that served as a technical blueprint for the development team.'
+      ]
+    }
+  ];
+
+  education = [
+    {
+      degree: 'Master of Science, Computer Science',
+      university: 'Philipps-Universität Marburg, Germany',
+      period: '2024 – Ongoing',
+      logoUrl: 'assets/marburg.png'
+    },
+    {
+      degree: 'Bachelor of Science, Computer Science',
+      university: 'National University of Computing and Emerging Sciences, Pakistan',
+      period: '2018 – 2022',
+      logoUrl: 'assets/fast.png'
+    }
+  ];
+
+  skills = [
+    { category: 'Frontend', list: 'React, Angular, TypeScript, Next.js, TailwindCSS' },
+    { category: 'Backend', list: 'Java Spring Boot, Python, Node.js' },
+    { category: 'Systems Programming', list: 'Java, C++, C' },
+    { category: 'Data/ML', list: 'TensorFlow, Keras, Scikit-learn, Pandas, OpenCV' },
+    { category: 'Databases', list: 'MySQL, MongoDB, PostgreSQL' },
+    { category: 'Tools & Platforms', list: 'Git, Docker, AWS, Jira, Postman' }
+  ];
+
+  languages = [
+    { name: 'English', proficiency: 'Full Professional Proficiency' },
+    { name: 'Urdu', proficiency: 'Native Speaker' },
+    { name: 'German', proficiency: 'Basic Conversational' }
+  ];
+
+  hobbies = [
+    { name: 'Gardening', icon: 'fas fa-leaf' },
+    { name: 'Wood Carving', icon: 'fas fa-tree' },
+    { name: 'Hiking', icon: 'fas fa-hiking' },
+    { name: 'Bouldering', icon: 'fas fa-mountain' }
+  ];
+
+  ngAfterViewInit() {
+    this.setupIntersectionObserver();
+  }
+
+  private setupIntersectionObserver() {
+    const options = { root: null, rootMargin: '0px', threshold: 0.1 };
+    this.observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    this.animatedElements.forEach((el, index) => {
+      (el.nativeElement as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+      this.observer.observe(el.nativeElement);
+    });
+  }
 }

@@ -6,37 +6,22 @@ body, html {
   height: 100%;
 }
 
-/* Main Container & Background */
 .home-container {
   position: relative;
-  background: radial-gradient(circle at 50% 110%, #f27b01 45%, #e1672e 54%, #6483d3 70%);
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the new single card */
-  padding: 2rem;
+  justify-content: center; 
+  padding: 2rem; /* Default padding for desktop */
   min-height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-  font-family: 'Inter', sans-serif;
 }
 
-/* Grain Overlay */
-.home-container::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('/assets/grain.png');
-  opacity: 0.6;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Merged Profile Card (Replaces .content-section as the main container) */
 .profile-card {
-  position: relative; /* Crucial for positioning the image */
+  position: relative;
   display: flex;
   align-items: center;
-  max-width: 800px; /* Wider card to accommodate both elements */
+  max-width: 800px;
   width: 100%;
   background: hsl(216deg 8.2% 11.96%);
   border-radius: 16px;
@@ -46,14 +31,14 @@ body, html {
   padding: 3rem 4rem;
   transition: all 0.3s ease-out;
 }
-
 /* Wrapper for all text elements */
 .text-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-width: 450px; /* Constrain text width */
+  max-width: 450px;
 }
+
 
 /* Typography (largely unchanged) */
 .text-content h1 {
@@ -68,7 +53,7 @@ body, html {
 .text-content h2 {
   font-size: 1.25rem;
   font-weight: 500;
-  color: #d94d75;
+  color: #5792bb;
   margin: 0;
   letter-spacing: 1px;
 }
@@ -111,15 +96,16 @@ body, html {
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Image Section Styling */
+/* Update this existing rule */
 .profile-image-container {
-    position: absolute;
-    top: 36%;
-    right: -24px;
-    transform: translateY(-50%);
-    width: 400px;
-    height: 400px;
-    z-index: 2;
+  position: absolute;
+  top: 36%;
+  right: -24px;
+  --final-transform: translateY(-50%);
+  transform: var(--final-transform);
+  width: 400px;
+  height: 400px;
+  z-index: 2;
 }
 
 .animated-glow {
@@ -144,47 +130,45 @@ body, html {
   50% { transform: scale(1.05); opacity: 0.4; }
 }
 
-/* === Responsive Adjustments === */
-
 @media (max-width: 1024px) {
   .profile-card {
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
     padding: 2rem;
-    padding-top: 140px; /* Make space for the image at the top */
-    margin-top: 140px; /* Push card down to not get cut off at top */
-    max-width: 500px;
+    padding-top: 140px;
+    margin-top: 140px;
+    max-width: 500px; /* This is good for tablets */
   }
 
   .text-content {
-    align-items: center; /* Center-align text */
+    align-items: center;
     text-align: center;
     max-width: 100%;
   }
 
   .profile-image-container {
-    position: absolute;
-    top: 0; /* Position at the top center of the card */
+    top: 0;
     left: 50%;
     right: auto;
-    /* Center it perfectly on the top edge */
-    transform: translate(-50%, -50%);
+    --final-transform: translate(-50%, -50%);
+    transform: var(--final-transform);
     width: 280px;
     height: 280px;
   }
 
   .buttons {
-    justify-content: center; /* Center buttons */
+    justify-content: center;
   }
 }
 
-@media (max-width: 768px) {
-  .home-container {
-    padding: 1.5rem;
-  }
 
+@media (max-width: 768px) {
   .profile-card {
     margin-top: 120px;
     padding-top: 120px;
+    
+    /* THE FIX: Set a percentage width and override the max-width */
+    width: 90%;
+    max-width: none; /* This removes the 500px limit from the tablet style */
   }
 
   .profile-image-container {
@@ -201,11 +185,99 @@ body, html {
   }
 
   .buttons {
-    flex-direction: column; /* Stack buttons vertically */
+    flex-direction: column;
     width: 100%;
   }
 
   .buttons a, .buttons button {
-    width: 100%; /* Make buttons full-width */
+    width: 100%;
+  }
+}
+/* New animation specifically for the profile image */
+@keyframes fadeInUpImage {
+  from {
+    opacity: 0;
+    /* Starts 20px lower than its final centered position */
+    transform: translateY(-50%) translateY(20px); 
+  }
+  to {
+    opacity: 1;
+    /* Ends perfectly centered */
+    transform: translateY(-50%);
+  }
+}
+/* === Fade-In Animation on Load (Fully Responsive) === */
+
+/* Prepare all elements for animation */
+.profile-card,
+.profile-image-container,
+.text-content > h1,
+.text-content > h2,
+.text-content > p,
+.buttons {
+  opacity: 0; 
+  animation-fill-mode: forwards;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+}
+
+/* Apply the GENERIC animation */
+.profile-card,
+.text-content > h1,
+.text-content > h2,
+.text-content > p,
+.buttons {
+  animation-name: fadeInUp; 
+}
+
+/* Apply the SMART animation to the image */
+.profile-image-container {
+  animation-name: fadeInUpWithTransform; /* Use the new variable-based animation */
+}
+
+/* Stagger the start times (no changes here) */
+.profile-card {
+  animation-delay: 1s;
+}
+.profile-image-container {
+  animation-delay: 1.2s;
+}
+.text-content > h1 {
+  animation-delay: 1.4s;
+}
+.text-content > h2 {
+  animation-delay: 1.6s;
+}
+.text-content > p.desc {
+  animation-delay: 1.8s;
+}
+.buttons {
+  animation-delay: 2s;
+}
+
+/* --- Don't forget to keep your original fadeInUp animation for the other elements --- */
+/* A single, flexible animation for the image container */
+@keyframes fadeInUpWithTransform {
+  from {
+    opacity: 0;
+    /* It reads the variable and adds the slide-up effect */
+    transform: var(--final-transform) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    /* It settles at the correct position defined by the variable */
+    transform: var(--final-transform);
+  }
+}
+
+/* The simple animation for everything else (no change here) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

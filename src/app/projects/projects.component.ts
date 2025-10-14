@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef } from '@angular/core';
 import { Project } from './projects.model';
 
 @Component({
@@ -6,64 +6,81 @@ import { Project } from './projects.model';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements AfterViewInit {
+  @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
+  private observer!: IntersectionObserver;
+
+  // Helper to format tags for CSS classes
   getTagClass(tag: string): string {
-    const formattedTag = tag.toLowerCase().replace(/\s+/g, '-');
-    return `${formattedTag} tag-item`; 
+    return tag.toLowerCase().replace(/[^a-z0-9]/g, '-');
   }
-  getIconClass(tag: string): string {
-    const iconMap: { [key: string]: string } = {
-      'React': 'fab fa-react',
-      'Node.js': 'fab fa-node',
-      'MongoDB': 'fas fa-database',
-      'Java': 'fab fa-java',
-      'TensorFlow': 'fas fa-brain',
-      // Add more mappings as needed
-    };
-    return iconMap[tag] || 'fas fa-code';
-  }
+
+  // Updated projects array with a relevant Font Awesome icon for each
   projects: Project[] = [
     {
       title: 'Pineapple',
-      description: 'A modern mens clothing website built using the MERN stack, designed to offer a seamless shopping experience. Features include product browsing, user authentication (signup/login), a secure payment gateway, add-to-cart functionality, and a responsive design.',
-    //  imageUrl: 'assets/project1.jpg',
-      projectUrl: 'https://github.com/SyedZainAliShah/Typathon',
+      icon: 'fas fa-tshirt',
+      description: 'A modern MERN stack e-commerce site for menswear, offering a seamless shopping experience with user authentication, a secure payment gateway, and cart functionality.',
+      projectUrl: 'https://github.com/SyedZainAliShah/Pineapple',
       tags: ['MongoDB', 'Express', 'React', 'Node.js']
     },
     {
       title: 'ERASE',
-      description: 'A mobile app that detects and classifies garbage using a YOLOv4 model, converted to TensorFlow Lite (TFLite) for efficient on-device processing. It identifies waste types (plastic, paper, metal, etc.) and determines recyclability, helping users sort trash correctly and promote recycling.',
-    //  imageUrl: 'assets/project2.jpg',
-      projectUrl: 'https://github.com/SyedZainAliShah/Typathon',
+      icon: 'fas fa-trash-alt',
+      description: 'A mobile app using a YOLOv4 model to detect and classify garbage. It helps users sort trash correctly by identifying materials and determining recyclability on-device.',
+      projectUrl: 'https://github.com/SyedZainAliShah/ERASE-Android-App',
       tags: ['Kotlin', 'Java', 'TFlite', 'YOLOv4']
     },
     {
       title: 'JumpAround',
-      description: 'An enhanced Pong game built with Java and JOGL, featuring Phong and GGX microfacet shading for realistic lighting. Control metallic and roughness properties dynamically, adjust light direction, and enjoy gameplay with power-ups. Controls: Player 1: W/S, Player 2: P/L, 5-8 to tweak shading.',
-   //   imageUrl: 'assets/project3.jpg',
-      projectUrl: 'https://github.com/SyedZainAliShah/Messaging-Portal',
-      tags: ['Java', 'GGX Microfacet Shading', 'JOGL']
+      icon: 'fas fa-gamepad',
+      description: 'An enhanced Pong game in Java/JOGL with realistic lighting via Phong and GGX microfacet shading, allowing dynamic control over material properties.',
+      projectUrl: 'https://github.com/SyedZainAliShah/JumpAround',
+      tags: ['Java', 'GGX Shading', 'JOGL']
     },
     {
       title: 'Typathon',
-      description: 'Typathon is a typing game built with Angular (v14.2.5), focusing on a clean, simple design. Angular was chosen for its robust structure and efficient handling of dynamic content, making it perfect for this real-time typing challenge. The game generates random Latin words via Faker JS to enhance typing practice.',
-   //   imageUrl: 'assets/project4.jpg',
+      icon: 'fas fa-keyboard',
+      description: 'A clean, simple typing game built with Angular. This real-time challenge leverages Angular\'s robust structure and generates random words to enhance typing practice.',
       projectUrl: 'https://github.com/SyedZainAliShah/Typathon',
-      tags: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Javascript']
+      tags: ['Angular', 'TypeScript', 'HTML', 'CSS']
     },
     {
       title: 'Messaging Portal',
-      description: 'A command-line messaging application built with Python, enabling users to send and receive messages directly from the terminal. This simple app demonstrates Pythons capabilities for handling basic user input, file operations, and message storage in a text-based interface.',
-    //  imageUrl: 'assets/project5.jpg',
+      icon: 'fas fa-terminal',
+      description: 'A command-line messaging application built with Python that enables users to send and receive messages directly from their terminal, showcasing file I/O.',
       projectUrl: 'https://github.com/SyedZainAliShah/Messaging-Portal',
-      tags: ['Python','HTML']
+      tags: ['Python', 'CLI']
     },
     {
       title: 'Proxy Server',
-      description: 'A simple Python-based proxy server with caching functionality. This server listens on a specified port, intercepts HTTP requests, and serves files from cache if available. If the file is not cached, it fetches it from the origin server, caches it, and then serves it to the client. It also supports blocking URLs from a blocklist.',
-    //  imageUrl: 'assets/project6.jpg',
+      icon: 'fas fa-server',
+      description: 'A Python-based proxy server with caching. It intercepts HTTP requests, serves files from its cache, or fetches them from the origin while supporting a URL blocklist.',
       projectUrl: 'https://github.com/SyedZainAliShah/Proxy-Server',
-      tags: ['Python','HTML']
+      tags: ['Python', 'Networking']
     }
   ];
-} 
+
+  ngAfterViewInit() {
+    this.setupIntersectionObserver();
+  }
+
+  private setupIntersectionObserver() {
+    const options = { root: null, rootMargin: '0px', threshold: 0.1 };
+
+    this.observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    // Stagger the animation for the header and each card
+    this.animatedElements.forEach((el, index) => {
+      (el.nativeElement as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+      this.observer.observe(el.nativeElement);
+    });
+  }
+}
