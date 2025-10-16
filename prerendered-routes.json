@@ -1,8 +1,8 @@
 {
   "routes": {
-    "/MyPortfolio": {},
-    "/MyPortfolio/about": {},
-    "/MyPortfolio/contact": {},
-    "/MyPortfolio/projects": {}
+    "/Portfolio": {},
+    "/Portfolio/about": {},
+    "/Portfolio/contact": {},
+    "/Portfolio/projects": {}
   }
 }
