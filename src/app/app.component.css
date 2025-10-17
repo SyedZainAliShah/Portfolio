@@ -9,6 +9,32 @@
   inherits: false;
   initial-value: 52%;
 }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #000000; 
+  padding: 1rem 0; 
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #5792bb; /* Your accent color */
+}
 main {
   margin: 0;
   min-height: 100vh;
