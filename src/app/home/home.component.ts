@@ -16,7 +16,7 @@ export class HomeComponent {
   onImageClick() {
     this.clickCount++;
 
-    if (this.clickCount >= 2) {
+    if (this.clickCount >= 15) {
       this.isFlipped = true;
       setTimeout(() => {
         this.isFlipped = false;
