@@ -22,9 +22,18 @@
       </div>
     </div>
 
-    <div class="profile-image-container">
-      <div class="animated-glow"></div>
-      <img src="./assets/zain.png" alt="Syed Zain Ali Shah" class="profile-picture">
+    <div class="profile-image-container"
+         (click)="onImageClick()"
+         [class.is-flipped]="isFlipped">
+      <div class="flipper">
+        <div class="flipper-front">
+          <div class="animated-glow"></div>
+          <img src="./assets/zain.png" alt="Syed Zain Ali Shah" class="profile-picture">
+        </div>
+        <div class="flipper-back">
+          <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGdnMG51cG5yZDkydnQ1bzA2Ym55bWVpbXkzcXc1M3RkOGQzdTc1aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FcCLjCQ3xY7ICVtfbB/giphy.gif" alt="Thumbs Up GIF" class="profile-picture">
+        </div>
+      </div>
     </div>
 
   </div>
