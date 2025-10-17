@@ -14,27 +14,55 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #000000; 
-  padding: 1rem 0; 
+  background-color: #000000;
+  padding: 1rem 0;
   width: 100%;
-}
-
-nav {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 60px; /* Give the header a fixed height */
+}
+
+.desktop-nav {
+  display: flex; /* Visible by default on desktop */
   gap: 2rem;
 }
 
-nav a {
+.desktop-nav a {
   color: #ffffff;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.2s ease;
 }
 
-nav a:hover {
+.desktop-nav a:hover {
   color: #5792bb; /* Your accent color */
 }
+
+/* --- HAMBURGER & MOBILE MENU (HIDDEN ON DESKTOP) --- */
+.hamburger {
+  display: none; /* Hidden by default on desktop */
+  position: relative;
+  z-index: 101; /* Ensure it's above the overlay */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin: 5px 0;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu {
+  display: none; /* Hidden by default */
+}
+
 main {
   margin: 0;
   min-height: 100vh;
@@ -161,5 +189,57 @@ footer {
   50% {
     --orange-stop: 45%;
     --blue-stop: 58%;
+  }
+}
+
+/* --- MOBILE STYLES (WHEN SCREEN IS 768px OR LESS) --- */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* Hide desktop nav on mobile */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger button on mobile */
+    position: fixed; /* Make it stay in place */
+    top: 15px;
+    right: 15px;
+  }
+
+  /* Hamburger animation to 'X' */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .mobile-menu.active {
+    transform: translateX(0); /* Slide in when active */
+  }
+
+  .mobile-menu a {
+    color: #ffffff;
+    font-size: 2rem;
+    text-decoration: none;
   }
 }

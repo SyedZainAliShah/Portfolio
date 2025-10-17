@@ -145,7 +145,7 @@
 /* === Responsive Design === */
 @media (max-width: 768px) {
   .contact-section {
-    padding: 3rem 1rem;
+    margin: 0rem 1rem;
   }
   .contact-card {
     padding: 2rem 1.5rem;

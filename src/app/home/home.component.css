@@ -24,6 +24,7 @@
   transition: all 0.3s ease-out;
 }
 
+/* === Text Content === */
 .text-content {
   display: flex;
   flex-direction: column;
@@ -56,16 +57,21 @@
 }
 
 .text-content p.desc span {
-    color: #f0f0f0;
+  font-weight: bold;
+  color: #f0f0f0;
 }
 
+/* === Buttons === */
 .buttons {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
 }
 
-.buttons button {
+.buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   padding: 12px 24px;
   font-size: 1rem;
   font-weight: 500;
@@ -74,17 +80,19 @@
   border-radius: 12px;
   background-color: rgba(22, 22, 34, 0.6);
   color: #f0f0f0;
+  text-decoration: none;
   transition: all 0.2s ease-in-out;
   backdrop-filter: blur(5px);
 }
 
-.buttons button:hover {
+.buttons .btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
+/* === Profile Image === */
 .profile-image-container {
   position: absolute;
   top: 36%;
@@ -119,13 +127,13 @@
 }
 
 /* === Fade-In Animation Rules === */
-.profile-card, .profile-image-container, .text-content > h1, .text-content > h2, .text-content > p, .buttons {
+.profile-card, .profile-image-container, .text-content > div > h1, .text-content > div > h2, .text-content > p, .buttons {
   opacity: 0;
   animation-fill-mode: forwards;
   animation-duration: 0.8s;
   animation-timing-function: ease-out;
 }
-.profile-card, .text-content > h1, .text-content > h2, .text-content > p, .buttons {
+.profile-card, .text-content > div > h1, .text-content > div > h2, .text-content > p, .buttons {
   animation-name: fadeInUp;
 }
 .profile-image-container {
@@ -133,8 +141,8 @@
 }
 .profile-card { animation-delay: 1s; }
 .profile-image-container { animation-delay: 1.2s; }
-.text-content > h1 { animation-delay: 1.4s; }
-.text-content > h2 { animation-delay: 1.6s; }
+.text-content > div > h1 { animation-delay: 1.4s; }
+.text-content > div > h2 { animation-delay: 1.6s; }
 .text-content > p.desc { animation-delay: 1.8s; }
 .buttons { animation-delay: 2s; }
 
@@ -151,11 +159,11 @@
 /* === Tablet View (Specific Range) === */
 @media (min-width: 769px) and (max-width: 1024px) {
   .profile-card {
-        flex-direction: column;
-        padding: 5rem;
-        padding-top: 165px;
-        margin-top: 0px;
-        max-width: 530px;
+    flex-direction: column;
+    padding: 5rem;
+    padding-top: 165px;
+    margin-top: 0px;
+    max-width: 530px;
   }
   .text-content {
     align-items: center;
@@ -175,47 +183,61 @@
     justify-content: center;
   }
 }
-
 /* === Mobile View === */
 @media (max-width: 768px) {
   .home-container {
-    padding: 0;
+    padding: 5rem 1rem 2rem 1rem; /* Add padding to center the card vertically */
+    min-height: auto;
   }
+
   .profile-card {
-    width: 100%;
-    min-height: 100vh;
-    max-width: none;
-    border-radius: 0;
-    border: none;
-    margin-top: 0;
-    padding: 120px 1.5rem 2rem 1.5rem;
-    justify-content: center;
-    box-sizing: border-box;
+    flex-direction: column; /* Stack items vertically */
+    width: 100%; /* Card will take the width of the container */
+    max-width: 400px; /* Keep the card from getting too wide */
+    margin: 0 auto; /* Center the card */
+    padding: 2rem;
+    padding-top: 100px; /* Add space at the top for the absolute-positioned image */
+    border-radius: 16px; /* Restore rounded corners */
+    min-height: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Restore the border */
   }
+
+  /* This is the key change: Position the image like the tablet view */
   .profile-image-container {
-    width: 240px;
-    height: 240px;
+    position: absolute; /* Position relative to the card */
+    top: 0; /* Align to the top edge of the card */
+    left: 50%;
+    --final-transform: translate(-50%, -50%); /* Center it perfectly on the top edge */
+    transform: var(--final-transform);
+    width: 180px;
+    height: 180px;
+    margin-bottom: 0; /* No longer needed */
   }
+
+  .text-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Adjust font sizes for better readability on smaller screens */
   .text-content h1 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
   .text-content h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .text-content p.desc {
-    font-size: 1.1rem;
-    max-width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 0.95rem;
   }
+
+  /* Stack buttons vertically for easy tapping */
   .buttons {
     flex-direction: column;
     width: 100%;
-    max-width: 350px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 300px;
   }
-  .buttons a, .buttons button {
-    width: 100%;
+
+  .buttons a, .buttons .btn {
+    justify-content: center;
   }
 }
