@@ -2,24 +2,42 @@
   <div class="profile-card">
 
     <div class="text-content">
-      <div>
-        <h1>Hey, I'm Zain</h1>
-        <h2>{{ profession }} <i class="fa-solid fa-code"></i></h2>
-      </div>
+      <h1>SYED ZAIN ALI SHAH</h1>
+      
+      <h2 class="subheading">
+        {{ typedText }}<span class="typing-cursor">|</span>
+      </h2>
+      
       <p class="desc">
-        Building <span>tech <i class="fa-solid fa-rocket"></i></span> that <span>cares <i class="fa-solid fa-hand-holding-hand"></i></span>. Crafting thoughtful, human-focused solutions that make a difference.
+        Building scalable, data-driven web applications with modern frameworks. Currently pursuing M.Sc. Computer Science at Philipps-Universität Marburg, Germany.
       </p>
-      <div class="buttons">
-        <a href="https://www.linkedin.com/in/syedzainalishah" target="_blank" class="btn">
-          <i class="fa-brands fa-linkedin"></i> LinkedIn
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/syedzainalishah" target="_blank" aria-label="LinkedIn" class="social-link-btn">
+          <i class="fa-brands fa-linkedin"></i>
+          <span>LinkedIn</span>
         </a>
-        <a href="https://github.com/SyedZainAliShah" target="_blank" class="btn">
-          <i class="fa-brands fa-github"></i> Github
-        </a>
-        <a href="assets/resume.pdf" download="SyedZainAliShah_Resume.pdf" class="btn">
-          <i class="fa-regular fa-file"></i> Download CV
+        <a href="https://github.com/SyedZainAliShah" target="_blank" aria-label="Github" class="social-link-btn">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
         </a>
       </div>
+
+      <div class="tech-stack">
+        <span class="tech-chip" title="Angular"><i class="fa-brands fa-angular"></i></span>
+        <span class="tech-chip" title="React"><i class="fa-brands fa-react"></i></span>
+        <span class="tech-chip" title="TypeScript"><i class="fa-brands fa-js-square"></i></span>
+        <span class="tech-chip" title="Java"><i class="fa-brands fa-java"></i></span>
+        <span class="tech-chip" title="Spring Boot"><i class="fa-solid fa-leaf"></i></span>
+        <span class="tech-chip" title="Node.js"><i class="fa-brands fa-node-js"></i></span>
+        <span class="tech-chip" title="PostgreSQL"><i class="fa-solid fa-database"></i></span>
+        <span class="tech-chip" title="Docker"><i class="fa-brands fa-docker"></i></span>
+      </div>
+      
+      <div class="status-badge">
+        🇩🇪 Available for Werkstudent Positions
+      </div>
+
     </div>
 
     <div class="profile-image-container"
@@ -28,12 +46,9 @@
       <div class="flipper">
         <div class="flipper-front">
           <div class="animated-glow"></div>
-          <img ngSrc="./assets/zain.png" 
+          <img src="./assets/zain.png" 
               alt="Syed Zain Ali Shah" 
-              class="profile-picture"
-              width="800"
-              height="800"
-              priority>
+              class="profile-picture">
         </div>
         <div class="flipper-back">
           <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG80enB0OTQ1dndyZGZ1dzRldWIyaXVvdmwwazkwbXBhbWtpNmF6MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lqmp9tVPIvtyyKQneQ/giphy.gif" alt="Cat GIF" class="profile-picture">

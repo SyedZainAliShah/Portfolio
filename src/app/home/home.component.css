@@ -28,25 +28,36 @@
 .text-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem; 
   max-width: 450px;
 }
 
 .text-content h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-size: 2.5rem; 
+  font-weight: 800; 
   margin: 0;
   line-height: 1.2;
   color: #f0f0f0;
   text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  text-transform: uppercase; 
 }
 
-.text-content h2 {
+.text-content h2.subheading {
   font-size: 1.25rem;
   font-weight: 500;
   color: #5792bb;
   margin: 0;
   letter-spacing: 1px;
+  height: 1.5rem; /* Reserve space to prevent layout jump */
+}
+
+.typing-cursor {
+  color: #5792bb;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .text-content p.desc {
@@ -56,43 +67,111 @@
   margin: 0;
 }
 
-.text-content p.desc span {
-  font-weight: bold;
-  color: #f0f0f0;
+/* Status Badge */
+.status-badge {
+  display: inline-block;
+  width: fit-content;
+  background-color: rgba(87, 146, 187, 0.15);
+  border: 1px solid #5792bb;
+  color: #7ab3dd;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
-/* === Buttons === */
-.buttons {
+/* === UPDATED: Tech Stack === */
+.tech-stack {
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* Gap between chips */
 }
 
-.buttons .btn {
+.tech-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  background-color: rgba(22, 22, 34, 0.6);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(22, 22, 34, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #c0c0c0;
+  font-size: 1.5rem; /* Icon size */
+  transition: all 0.2s ease;
+}
+
+.tech-chip:hover {
   color: #f0f0f0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  backdrop-filter: blur(5px);
-}
-
-.buttons .btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* === Profile Image === */
+/* === UPDATED: Social Links === */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Base style for links */
+.social-links a {
+  color: #c0c0c0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.social-links a:hover {
+  color: #f0f0f0;
+}
+
+/* Style for text buttons (LinkedIn, GitHub) */
+.social-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: rgba(22, 22, 34, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.social-link-btn i {
+  font-size: 1.1rem;
+}
+.social-link-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Style for icon-only button (Email) */
+.social-icon-btn {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+.social-icon-btn:hover {
+  color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+/* Special CV Button */
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #5792bb;
+  margin-left: auto; /* Pushes to the right */
+}
+.btn-cv:hover {
+  text-decoration: underline;
+  color: #7ab3dd;
+}
+
+/* === Profile Image (Unchanged) === */
 .profile-image-container {
   position: absolute;
   top: 36%;
@@ -102,11 +181,9 @@
   width: 400px;
   height: 400px;
   z-index: 2;
-  /* Added for 3D flip */
   perspective: 1000px;
   cursor: pointer;
 }
-
 .animated-glow {
   position: absolute;
   inset: 0;
@@ -115,7 +192,6 @@
   filter: blur(48px);
   animation: pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-
 .profile-picture {
   position: relative;
   width: 100%;
@@ -123,20 +199,21 @@
   border-radius: 50%;
   object-fit: cover;
 }
-
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 0.6; }
   50% { transform: scale(1.05); opacity: 0.4; }
 }
 
-/* === Fade-In Animation Rules === */
-.profile-card, .profile-image-container, .text-content > div > h1, .text-content > div > h2, .text-content > p, .buttons {
+/* === Fade-In Animation Rules (Unchanged) === */
+.profile-card, .profile-image-container, .text-content h1, .text-content h2, 
+.text-content p, .status-badge, .tech-stack, .social-links {
   opacity: 0;
   animation-fill-mode: forwards;
   animation-duration: 0.8s;
   animation-timing-function: ease-out;
 }
-.profile-card, .text-content > div > h1, .text-content > div > h2, .text-content > p, .buttons {
+.profile-card, .text-content h1, .text-content h2, .text-content p, 
+.status-badge, .tech-stack, .social-links {
   animation-name: fadeInUp;
 }
 .profile-image-container {
@@ -144,10 +221,14 @@
 }
 .profile-card { animation-delay: 1s; }
 .profile-image-container { animation-delay: 1.2s; }
-.text-content > div > h1 { animation-delay: 1.4s; }
-.text-content > div > h2 { animation-delay: 1.6s; }
-.text-content > p.desc { animation-delay: 1.8s; }
-.buttons { animation-delay: 2s; }
+.text-content h1 { animation-delay: 1.4s; }
+.text-content h2.subheading { animation-delay: 1.6s; }
+.text-content p.desc { animation-delay: 1.8s; }
+/* Adjusted delays for new order */
+.social-links { animation-delay: 2.0s; }
+.tech-stack { animation-delay: 2.2s; }
+.status-badge { animation-delay: 2.4s; }
+
 
 @keyframes fadeInUpWithTransform {
   from { opacity: 0; transform: var(--final-transform) translateY(20px); }
@@ -159,7 +240,7 @@
 }
 
 
-/* === Tablet View (Specific Range) === */
+/* === Tablet View (Unchanged) === */
 @media (min-width: 769px) and (max-width: 1024px) {
   .profile-card {
     flex-direction: column;
@@ -182,11 +263,18 @@
     width: 280px;
     height: 280px;
   }
-  .buttons {
+  .tech-stack {
     justify-content: center;
   }
+  .social-links {
+    justify-content: center;
+  }
+  .btn-cv {
+    margin-left: 0;
+  }
 }
-/* === Mobile View === */
+
+/* === Mobile View (Updated) === */
 @media (max-width: 768px) {
   .home-container {
     padding: 5.5rem 1rem 2rem 1rem;
@@ -225,24 +313,38 @@
   .text-content h1 {
     font-size: 2.2rem;
   }
-  .text-content h2 {
+  .text-content h2.subheading {
     font-size: 1rem;
+    height: 1.2rem; /* Adjust height for mobile */
   }
   .text-content p.desc {
     font-size: 0.95rem;
   }
 
-  .buttons {
-    flex-direction: column;
-    width: 100%;
-    max-width: 300px;
+  .tech-stack {
+    justify-content: center;
+    gap: 0.5rem; /* Tighter gap for chips */
+  }
+  .tech-chip {
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
   }
 
-  .buttons a, .buttons .btn {
+  .social-links {
     justify-content: center;
+    flex-wrap: wrap; 
+    gap: 0.75rem; /* Tighter gap */
+  }
+  .social-link-btn {
+    padding: 0.4rem 0.8rem; /* Slightly smaller */
+  }
+  .btn-cv {
+    margin-left: 0; /* Let it wrap normally */
   }
 }
 
+/* === Flipper (Unchanged) === */
 .flipper {
   position: relative;
   width: 100%;
@@ -250,11 +352,9 @@
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-
 .profile-image-container.is-flipped .flipper {
   transform: rotateY(180deg);
 }
-
 .flipper-front, .flipper-back {
   position: absolute;
   width: 100%;
@@ -263,7 +363,6 @@
   backface-visibility: hidden; 
   border-radius: 50%;
 }
-
 .flipper-back {
   background-color: #2a2a3a;
   transform: rotateY(180deg);
@@ -271,7 +370,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .flipper-back img {
   width: 100%;
   height: 100%;

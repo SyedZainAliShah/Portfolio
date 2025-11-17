@@ -24,25 +24,49 @@
   margin: 0 auto;
 }
 
-.project-grid {
+.tier-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === Grid Layouts === */
+.tier-1-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem; /* Space between tiers */
+}
+
+.tier-2-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1.5rem;
 }
 
-/* === Project Card Styling (Now an Anchor Tag) === */
+@media (min-width: 992px) {
+  /* On large screens, Tier 2 can have up to 3 columns */
+  .tier-2-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+
+/* === Base Project Card Styling === */
 .project-card {
   background: hsl(216deg 8.2% 11.96%);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  padding: 1.5rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  text-decoration: none; /* Remove underline from link */
-  color: inherit;       /* Inherit text color */
-  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  position: relative; /* For highlight badge */
 }
 
 .project-card:hover {
@@ -51,64 +75,80 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
+/* Tier 1 cards are larger and have more padding */
+.tier-1-card {
+  padding: 2rem;
 }
 
-.project-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: rgba(22, 22, 34, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.project-icon i {
-  font-size: 1.5rem;
-  color: #5792bb;
-}
-
-.link-indicator {
-  color: #6a6a7a;
-  font-size: 1.25rem; /* Slightly larger for the logo */
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.project-card:hover .link-indicator {
-  color: #c0c0c0;
-  transform: scale(1.1); /* Use scale for a better hover effect on the logo */
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.card-content h3 {
-  font-size: 1.4rem;
+/* === Card Content === */
+.project-card h3 {
+  font-size: 1.6rem;
   font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: #f0f0f0; /* Ensure title color is correct */
+  margin: 0 0 0.5rem 0;
+  color: #f0f0f0;
+}
+
+.tier-2-card h3 {
+  font-size: 1.4rem;
+}
+
+.subheader {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5792bb; /* Accent color for subheader */
+  margin-bottom: 1rem;
 }
 
 .project-description {
   color: #c0c0c0;
   line-height: 1.7;
   font-size: 0.95rem;
-  flex-grow: 1; /* Pushes tags to the bottom */
+  margin-bottom: 1.5rem;
 }
 
+.achievements-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin: 0 0 0.75rem 0;
+}
+
+.achievements-list {
+  color: #c0c0c0;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  padding-left: 1.25rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.achievements-list li {
+  margin-bottom: 0.5rem;
+}
+
+.card-spacer {
+  flex-grow: 1; /* Pushes tags/buttons to the bottom in Tier 2 */
+}
+
+.highlight-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: rgba(87, 146, 187, 0.15);
+  border: 1px solid #5792bb;
+  color: #7ab3dd;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* === Tags (Unchanged) === */
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: auto; /* Pushes to bottom */
+  padding-top: 1.5rem; /* Space above tags */
 }
 
 .tag {
@@ -121,21 +161,75 @@
   font-weight: 500;
 }
 
-/* === Animation Control === */
+/* === NEW: Button Container & Styles === */
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.project-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #c0c0c0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.project-button i {
+  font-size: 0.9rem;
+}
+
+.project-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f0f0f0;
+}
+
+/* Primary button style (for Live Demo / Play Game) */
+.project-button.btn-primary {
+  background-color: #5792bb;
+  border-color: #5792bb;
+  color: #ffffff;
+}
+
+.project-button.btn-primary:hover {
+  background-color: #6aaadd;
+  border-color: #6aaadd;
+  color: #ffffff;
+}
+
+
+/* === Animation Control (Updated) === */
 .projects-header,
-.project-card {
+.tier-1-card,
+.tier-2-card,
+.tier-title {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .projects-header.is-visible,
-.project-card.is-visible {
+.tier-1-card.is-visible,
+.tier-2-card.is-visible,
+.tier-title.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 
+/* === Responsive (Updated) === */
 @media (max-width: 768px) {
   .projects-section {
     padding: 3rem 1rem;
@@ -145,20 +239,32 @@
     font-size: 2.25rem;
   }
 
-  .project-grid {
-    display: flex;
-    flex-direction: column;
+  /* Stack both grids on mobile */
+  .tier-1-grid,
+  .tier-2-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-card {
     padding: 1.25rem;
   }
-
-  .card-content h3 {
-    font-size: 1.25rem;
+  
+  .tier-1-card {
+    padding: 1.5rem;
   }
 
+  .project-card h3 {
+    font-size: 1.25rem;
+  }
+  
   .project-description {
     font-size: 0.9rem;
+  }
+  
+  .highlight-badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1rem;
+    width: fit-content;
   }
 }

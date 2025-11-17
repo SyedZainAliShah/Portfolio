@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProjectsComponent } from './projects.component';
+import { PLATFORM_ID } from '@angular/core';
 
 describe('ProjectsComponent', () => {
   let component: ProjectsComponent;
@@ -8,7 +8,11 @@ describe('ProjectsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProjectsComponent]
+      declarations: [ProjectsComponent], // Use 'declarations' for module-based components
+      providers: [
+        // Provide a mock value for the injected PLATFORM_ID
+        { provide: PLATFORM_ID, useValue: 'browser' } 
+      ]
     })
     .compileComponents();
 

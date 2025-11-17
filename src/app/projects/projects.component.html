@@ -4,35 +4,82 @@
     <p class="subtitle">A selection of projects that showcase my skills and interests in solving real-world problems.</p>
   </div>
 
-  <div class="project-grid">
-    @for (project of projects; track project.title) {
-      <!-- Card is an anchor tag, making the whole thing clickable -->
-      <a [href]="project.projectUrl"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="project-card"
-         #animatedElement
-         [attr.aria-label]="'View project: ' + project.title">
+  <h2 class="tier-title" #animatedElement>Featured Projects</h2>
+  <div class="tier-1-grid">
+    @for (project of tier1Projects; track project.header) {
+      <div class="project-card tier-1-card" #animatedElement [attr.aria-label]="project.header">
 
-        <div class="card-header">
-          <div class="project-icon">
-            <i [class]="project.icon"></i>
-          </div>
-          <!-- The link indicator now uses the GitHub icon -->
-          <div class="link-indicator">
-            <i class="fab fa-github"></i>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3>{{ project.title }}</h3>
-          <p class="project-description">{{ project.description }}</p>
-          <div class="project-tags">
-            @for (tag of project.tags; track tag) {
-            <span class="tag" [class]="getTagClass(tag)">{{ tag }}</span>
+        @if (project.highlightBadge) {
+          <div class="highlight-badge">{{ project.highlightBadge }}</div>
+        }
+
+        <h3>{{ project.header }}</h3>
+        <p class="subheader">{{ project.subheader }}</p>
+        <p class="project-description">{{ project.description }}</p>
+
+        @if (project.achievements.length > 0) {
+          <h4 class="achievements-title">Key Achievements</h4>
+          <ul class="achievements-list">
+            @for (item of project.achievements; track $index) {
+              <li>{{ item }}</li>
             }
-          </div>
+          </ul>
+        }
+
+        <div class="project-tags">
+          @for (tag of project.tags; track tag) {
+          <span class="tag" [class]="getTagClass(tag)">{{ tag }}</span>
+          }
         </div>
-      </a>
+
+        <div class="buttons-container">
+          @for (btn of project.buttons; track btn.label) {
+            <a [href]="btn.url" target="_blank" rel="noopener noreferrer" class="project-button" [class.btn-primary]="btn.styleClass === 'btn-primary'">
+              @if (btn.icon) { <i [class]="btn.icon"></i> }
+              {{ btn.label }}
+            </a>
+          }
+        </div>
+      </div>
     }
   </div>
+
+  <h2 class="tier-title" #animatedElement>Additional Projects</h2>
+  <div class="tier-2-grid">
+    @for (project of tier2Projects; track project.header) {
+      <div class="project-card tier-2-card" #animatedElement [attr.aria-label]="project.header">
+        
+        <h3>{{ project.header }}</h3>
+        <p class="subheader">{{ project.subheader }}</p>
+        <p class="project-description">{{ project.description }}</p>
+
+        @if (project.achievements.length > 0) {
+          <h4 class="achievements-title">Key Features</h4>
+          <ul class="achievements-list">
+            @for (item of project.achievements; track $index) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        }
+        
+        <div class="card-spacer"></div>
+
+        <div class="project-tags">
+          @for (tag of project.tags; track tag) {
+          <span class="tag" [class]="getTagClass(tag)">{{ tag }}</span>
+          }
+        </div>
+
+        <div class="buttons-container">
+          @for (btn of project.buttons; track btn.label) {
+            <a [href]="btn.url" target="_blank" rel="noopener noreferrer" class="project-button" [class.btn-primary]="btn.styleClass === 'btn-primary'">
+              @if (btn.icon) { <i [class]="btn.icon"></i> }
+              {{ btn.label }}
+            </a>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
 </section>
