@@ -23,49 +23,44 @@ export class ProjectsComponent implements AfterViewInit {
     {
       header: '🔐 UEBA Cybersecurity Dashboard',
       subheader: 'Professional Experience | GhangorCloud | March 2023 - March 2024',
-      description: 'Architected an enterprise-grade security analytics platform processing 50,000+ events daily, reducing analyst investigation time by 40%.',
+      // UPDATED DESCRIPTION: Replaced 50,000+ with 'thousands of events daily' and added professional statement.
+      description: 'Architected a major enterprise-grade security analytics feature processing thousands of events daily, which resulted in a 40% reduction in analyst investigation time. This project was a cornerstone of my professional development, offering extensive experience in building robust, scalable front-end systems for mission-critical security applications. This work is not publicly accessible on GitHub.',
       achievements: [
-        'Built 15+ custom data visualization components using Angular & TypeScript.',
-        'Integrated 20+ RESTful APIs with 99.9% uptime for near-real-time monitoring.',
-        'Optimized state management to handle 10,000+ concurrent updates smoothly.',
+        'Built 18 custom data visualization components using Angular & TypeScript.',
+        'Integrated 20+ RESTful APIs to ensure a high-availability, near-real-time data stream for continuous threat monitoring.',
+        'Optimized state management to handle thousands of concurrent updates smoothly.',
         'Improved threat detection efficiency by 35% through intuitive UX design.'
       ],
-      tags: ['Angular', 'TypeScript', 'Kendo UI', 'RESTful APIs', 'State Management'],
-      buttons: [
-        { label: 'Read Case Study', url: '#', icon: 'fas fa-book-open' },
-        { label: 'View Details', url: '#', icon: 'fas fa-info-circle' }
-      ]
+      tags: ['Angular', 'TypeScript', 'Kendo UI', 'RESTful APIs', 'State Management', 'Springboot', 'Java', 'Cybersecurity'],
+      buttons: []
     },
     {
-      header: '🏥 DIGA (Digital Health Application)',
-      subheader: 'Medical Informatics Project | Marburg University Hospital | 2024',
-      description: 'Contributed to a medical informatics project at Marburg University Hospital, focusing on data processing while ensuring GDPR compliance and medical data privacy standards.',
+      header: '🏥 DiGA (Digital Health Application)',
+      subheader: 'Medical Informatics Project | University of Marburg Hospital | Summer Semester 2025',
+      description: 'Contributed to the development of a Django web application for physicians to collect, organize, and present comprehensive information on Digital Health Applications (DiGAs). The application features semantic search using Qdrant and deployment on Microsoft Azure.',
       achievements: [
-        'Processed 10,000+ patient records with strict data security protocols.',
-        'Ensured compliance with GDPR and German medical data regulations.',
-        'Collaborated with healthcare professionals and data scientists.'
+        'Extended data model to include lists of screenshots, videos, advantages, and disadvantages.',
+        'Enhanced search functionality using Qdrant vector embeddings for improved search relevance.',
+        'Streamlined Azure deployment using environment variables to ensure database persistence across redeployments.',
+        'Developed an LLM Chatbot prototype using Ollama and Gradio for research and development.'
       ],
-      tags: ['Python', 'Data Processing', 'GDPR', 'Healthcare IT'], // Example tags
+      tags: ['Django', 'Python', 'Qdrant', 'Azure', 'GDPR', 'Healthcare IT'],
       highlightBadge: '🇩🇪 German Healthcare Project',
-      buttons: [
-        { label: 'Project Details', url: '#', icon: 'fas fa-info-circle' }
-      ]
+      buttons: []
     },
     {
       header: '🛒 Pineapple E-commerce Platform',
       subheader: 'Full-Stack MERN Application | Personal Project',
-      description: 'Built a complete e-commerce platform from scratch using the MERN stack, featuring user authentication, payment gateway integration, and product management.',
+      description: 'A modern men\'s clothing website built using the MERN stack, designed to offer a seamless shopping experience. Features include product browsing, user authentication (signup/login), a secure payment gateway, add-to-cart functionality, and a responsive design.',
       achievements: [
         'Full-featured product catalog supporting 500+ items.',
-        'Integrated Stripe payment gateway.',
+        'Integrated Braintree payment gateway.',
         'Implemented JWT authentication and authorization.',
         'Responsive design for mobile and desktop.'
       ],
-      tags: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Stripe'],
+      tags: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Braintree'],
       buttons: [
-        { label: 'Live Demo', url: '#', styleClass: 'btn-primary', icon: 'fas fa-rocket' },
-        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Pineapple', icon: 'fab fa-github' },
-        { label: 'Case Study', url: '#', icon: 'fas fa-book-open' }
+        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Pineapple', icon: 'fab fa-github' }
       ]
     }
   ];
@@ -83,7 +78,6 @@ export class ProjectsComponent implements AfterViewInit {
       ],
       tags: ['YOLOv4', 'Python', 'Kotlin', 'TFlite', 'OpenCV'],
       buttons: [
-        { label: 'Demo Video', url: '#', icon: 'fas fa-video' },
         { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/ERASE-Android-App', icon: 'fab fa-github' }
       ]
     },
@@ -99,8 +93,7 @@ export class ProjectsComponent implements AfterViewInit {
       ],
       tags: ['NestJS', 'Node.js', 'PostgreSQL', 'Docker', 'TypeScript'],
       buttons: [
-        { label: 'GitHub', url: '#', icon: 'fab fa-github' },
-        { label: 'API Docs', url: '#', icon: 'fas fa-file-alt' }
+        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/taskboard', icon: 'fab fa-github' }
       ]
     },
     {
@@ -114,7 +107,6 @@ export class ProjectsComponent implements AfterViewInit {
       ],
       tags: ['Angular', 'TypeScript', 'RxJS', 'CSS'],
       buttons: [
-        { label: 'Play Game', url: '#', styleClass: 'btn-primary', icon: 'fas fa-play-circle' },
         { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Typathon', icon: 'fab fa-github' }
       ]
     }

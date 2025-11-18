@@ -6,6 +6,26 @@
     <p class="summary-text">{{ professionalSummary }}</p>
   </div>
 
+  <div class="info-grid single-card-grid">
+    
+    <div class="info-card quick-facts-card" #animatedElement>
+      <h2 class="section-title">
+        <i class="fas fa-lightbulb"></i> Quick Facts
+      </h2>
+      <div class="quick-facts-list">
+        @for (fact of quickFacts; track fact.label) {
+          <div class="fact-item">
+            <i [class]="fact.icon"></i>
+            <span class="fact-label">{{ fact.label }}:</span>
+            <span class="fact-value">{{ fact.value }}</span>
+          </div>
+        }
+      </div>
+    </div>
+    
+  </div>
+
+
   <div class="experience-section">
     <h2 class="section-title" #animatedElement>
       <i class="fas fa-briefcase"></i> Professional Experience
@@ -83,9 +103,11 @@
     </div>
   </div>
 
-  <div class="info-grid">
-    
-    <div class="info-card" #animatedElement>
+  <div class="info-grid languages-only-grid">
+    <div class="info-card language-card" #animatedElement>
+      <h2 class="section-title">
+        <i class="fas fa-language"></i> Languages
+      </h2>
       <div class="languages-list">
         @for (lang of languages; track lang.name) {
           <div class="language-item">
@@ -95,8 +117,7 @@
         }
       </div>
     </div>
-    
-    </div>
+  </div>
 
 
   <div class="passion-section" #animatedElement>

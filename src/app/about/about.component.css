@@ -224,14 +224,18 @@
   margin-bottom: 0.25rem;
 }
 
-/* === 5. Languages Grid (Unchanged) === */
+/* === 5. Languages & Quick Facts Grid === */
 .info-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Always one column */
+  grid-template-columns: 1fr; /* Default one column */
   gap: 1.5rem;
-  margin: 0 auto 4rem auto; /* Center the grid */
-  max-width: 900px; /* Constrain width to match Experience */
+  margin: 0 auto 4rem auto;
+  max-width: 900px;
 }
+
+/* Added media query for two columns on larger screens */
+
+
 
 .info-card {
   background: hsl(216deg 8.2% 11.96%);
@@ -267,6 +271,43 @@
   text-align: right;
 }
 
+/* New Quick Facts Card Styles */
+.quick-facts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.fact-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.fact-item:last-child {
+  border-bottom: none;
+}
+
+.fact-item i {
+  color: #5792bb;
+  font-size: 1rem;
+}
+
+.fact-label {
+  font-weight: 500;
+  color: #E6E6E6;
+}
+
+.fact-value {
+  color: #A8A8A8;
+  text-align: right;
+  font-size: 0.95rem;
+}
+
 /* === 6. Passion Project Section (Unchanged) === */
 .passion-section {
   background: hsl(216deg 8.2% 11.96%);
@@ -287,7 +328,7 @@
 .social-links a { color: #A8A8A8; font-size: 1.5rem; transition: color 0.2s ease, transform 0.2s ease; }
 .social-links a:hover { color: #5792bb; transform: scale(1.1); }
 
-/* === Animation Control (Updated) === */
+/* === Animation Control (Unchanged) === */
 .summary-section, .job-item, .skill-tabs, 
 .skills-badge-container, .education-entry, .info-card, .passion-section,
 /* This now only targets top-level section-titles, not nested ones */

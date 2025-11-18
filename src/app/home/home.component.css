@@ -174,7 +174,7 @@
 /* === Profile Image (Unchanged) === */
 .profile-image-container {
   position: absolute;
-  top: 36%;
+  top: 38%;
   right: -24px;
   --final-transform: translateY(-50%);
   transform: var(--final-transform);

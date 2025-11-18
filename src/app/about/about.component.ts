@@ -41,8 +41,7 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  // ... (professionalSummary, experience, education, allSkills data are unchanged) ...
-  professionalSummary = "A highly ambitious Software Engineer with a proven track record of designing and developing scalable, data-intensive applications. My expertise is in building high-performance features and creating effortless, pixel-perfect user experiences. I thrive on taking full ownership of projects, from shaping frontend architecture to deployment, and am eager to contribute to a company that values both craftsmanship and high-impact results.";
+  professionalSummary = "A highly ambitious and data-driven Software Engineer with a proven track record of designing and developing scalable, data-intensive applications. My deep interest in AI/ML and Cybersecurity complements my expertise in building high-performance features and creating effortless, pixel-perfect user experiences. I thrive on taking full ownership of projects, from shaping frontend architecture to deployment, and am eager to contribute to a company that values both craftsmanship and high-impact results.";
   
   experience = [
     {
@@ -50,10 +49,12 @@ export class AboutComponent implements OnInit {
       company: 'GhangorCloud (Cybersecurity)',
       period: '03/2023 – 03/2024',
       points: [
-        'Took full ownership of the development for a new User and Entity Behavior Analytics (UEBA) platform, contributing to both the frontend architecture in Angular and the backend services in Java Spring Boot.',
-        'Engineered a suite of high-performance data visualization components using TypeScript and Kendo UI to represent user risk scores, activity timelines, and behavioral anomalies.',
-        'Developed and maintained RESTful APIs with Java Spring Boot to efficiently process and deliver near-real-time security event data to the Angular frontend.',
-        'Collaborated closely with UI/UX designers and domain experts to translate complex cybersecurity requirements into an intuitive and user-friendly interface for security analysts.'
+        // UPDATED: Mentioning both the UEBA platform and the new compliance product
+        'Contributed to the development and architecture of two major product initiatives: the User and Entity Behavior Analytics (UEBA) platform and a new Data Compliance offering (Angular/Java Spring Boot).',
+        // Removed bolding and refined language
+        'Engineered a suite of high-performance data visualization components (TypeScript/Kendo UI) to represent behavioral anomalies, risk scores, and activity timelines.',
+        'Integrated 20+ RESTful APIs to ensure a high-availability, near-real-time data stream for continuous threat monitoring.',
+        'Streamlined the analyst investigation process by collaborating with UI/UX designers to translate complex cybersecurity requirements into an intuitive and results-driven interface.'
       ]
     },
     {
@@ -61,9 +62,10 @@ export class AboutComponent implements OnInit {
       company: 'GhangorCloud',
       period: '09/2022 – 02/2023',
       points: [
+        // Removed bolding
         'Developed responsive data visualization components, including dynamic charts and data grids, in Angular and Kendo UI for the real-time analysis of large datasets.',
-        'Enhanced application performance and stability by optimizing front-end logic and resolving long-standing bugs in the Angular codebase.',
-        'Improved front-end styling and layout for data-centric applications using Bootstrap CSS for a more polished and usable interface.'
+        'Contributed to application performance by optimizing front-end logic and resolving critical stability bugs in the core Angular codebase.',
+        'Improved usability and user interface appeal for several data-centric applications through targeted front-end styling and layout enhancements (Bootstrap CSS).'
       ]
     },
     {
@@ -71,8 +73,8 @@ export class AboutComponent implements OnInit {
       company: 'SphereWMS - Shispare',
       period: '07/2021 – 09/2021',
       points: [
-        'Translated client needs into actionable development tasks by managing the product backlog and defining sprint goals.',
-        'Facilitated agile ceremonies to improve team alignment and ensure on-time feature delivery.',
+        'Translated client needs into actionable development tasks by managing the product backlog and defining clear sprint goals.',
+        'Facilitated agile ceremonies (Scrum) to improve team alignment and ensure on-time feature delivery.',
         'Designed detailed flowcharts and wireframes that served as a technical blueprint for the development team.'
       ]
     }
@@ -109,7 +111,7 @@ export class AboutComponent implements OnInit {
   ];
 
   allSkills: Skill[] = [
-    // ... (skills data unchanged)
+    // ... (Frontend Skills)
     { name: 'Angular', category: 'Frontend', icon: 'fab fa-angular' },
     { name: 'React', category: 'Frontend', icon: 'fab fa-react' },
     { name: 'TypeScript', category: 'Frontend', icon: 'fab fa-js-square' },
@@ -119,12 +121,15 @@ export class AboutComponent implements OnInit {
     { name: 'CSS3', category: 'Frontend', icon: 'fab fa-css3-alt' },
     { name: 'TailwindCSS', category: 'Frontend', icon: 'fas fa-paint-brush' },
     { name: 'Bootstrap', category: 'Frontend', icon: 'fab fa-bootstrap' },
+    // ... (Backend Skills)
     { name: 'Java/Spring Boot', category: 'Backend', icon: 'fab fa-java' },
     { name: 'Node.js', category: 'Backend', icon: 'fab fa-node-js' },
     { name: 'Express.js', category: 'Backend', icon: 'fab fa-node-js' },
     { name: 'Python', category: 'Backend', icon: 'fab fa-python' },
+    { name: 'Django', category: 'Backend', icon: 'fab fa-python' },
     { name: 'FastAPI', category: 'Backend', icon: 'fab fa-python' },
     { name: 'RESTful APIs', category: 'Backend', icon: 'fas fa-exchange-alt' },
+    // ... (Database, AI/ML, DevOps Skills)
     { name: 'PostgreSQL', category: 'Database', icon: 'fas fa-database' },
     { name: 'MongoDB', category: 'Database', icon: 'fas fa-database' },
     { name: 'MySQL', category: 'Database', icon: 'fas fa-database' },
@@ -163,7 +168,14 @@ export class AboutComponent implements OnInit {
     { name: 'German', proficiency: 'A2.2 (Actively Learning)' }
   ];
 
-  // --- Hobbies array removed ---
+  // --- Quick Facts Array ---
+  quickFacts = [
+    { label: 'Location', value: 'Marburg, Germany', icon: 'fas fa-map-marker-alt' },
+    { label: 'Current Status', value: 'M.Sc. Computer Science Student', icon: 'fas fa-graduation-cap' },
+    { label: 'Primary Stack', value: 'Angular & Spring Boot Specialist', icon: 'fas fa-laptop-code' },
+    { label: 'Language Skills', value: 'Fluent English, Learning German', icon: 'fas fa-globe' },
+    { label: 'Availability', value: 'Werkstudent and Internship (20hrs/week)', icon: 'fas fa-calendar-check' }
+  ];
 
   // ... (Intersection Observer logic is unchanged) ...
   private initIntersectionObserver() {
