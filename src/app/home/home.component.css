@@ -48,7 +48,7 @@
   color: #5792bb;
   margin: 0;
   letter-spacing: 1px;
-  height: 1.5rem; /* Reserve space to prevent layout jump */
+  height: 1.5rem; 
 }
 
 .typing-cursor {
@@ -80,11 +80,10 @@
   font-weight: 600;
 }
 
-/* === UPDATED: Tech Stack === */
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem; /* Gap between chips */
+  gap: 0.75rem; 
 }
 
 .tech-chip {
@@ -97,7 +96,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   color: #c0c0c0;
-  font-size: 1.5rem; /* Icon size */
+  font-size: 1.5rem; 
   transition: all 0.2s ease;
 }
 
@@ -107,7 +106,6 @@
   transform: translateY(-2px);
 }
 
-/* === UPDATED: Social Links === */
 .social-links {
   display: flex;
   align-items: center;
@@ -115,7 +113,6 @@
   flex-wrap: wrap;
 }
 
-/* Base style for links */
 .social-links a {
   color: #c0c0c0;
   text-decoration: none;
@@ -125,7 +122,6 @@
   color: #f0f0f0;
 }
 
-/* Style for text buttons (LinkedIn, GitHub) */
 .social-link-btn {
   display: inline-flex;
   align-items: center;
@@ -145,7 +141,6 @@
   transform: translateY(-2px);
 }
 
-/* Style for icon-only button (Email) */
 .social-icon-btn {
   font-size: 1.5rem;
   padding: 0.5rem;
@@ -156,7 +151,6 @@
   transform: scale(1.1);
 }
 
-/* Special CV Button */
 .btn-cv {
   display: inline-flex;
   align-items: center;
@@ -164,14 +158,13 @@
   font-size: 0.9rem;
   font-weight: 500;
   color: #5792bb;
-  margin-left: auto; /* Pushes to the right */
+  margin-left: auto; 
 }
 .btn-cv:hover {
   text-decoration: underline;
   color: #7ab3dd;
 }
 
-/* === Profile Image (Unchanged) === */
 .profile-image-container {
   position: absolute;
   top: 38%;
@@ -204,7 +197,6 @@
   50% { transform: scale(1.05); opacity: 0.4; }
 }
 
-/* === Fade-In Animation Rules (Unchanged) === */
 .profile-card, .profile-image-container, .text-content h1, .text-content h2, 
 .text-content p, .status-badge, .tech-stack, .social-links {
   opacity: 0;
@@ -224,7 +216,6 @@
 .text-content h1 { animation-delay: 1.4s; }
 .text-content h2.subheading { animation-delay: 1.6s; }
 .text-content p.desc { animation-delay: 1.8s; }
-/* Adjusted delays for new order */
 .social-links { animation-delay: 2.0s; }
 .tech-stack { animation-delay: 2.2s; }
 .status-badge { animation-delay: 2.4s; }
@@ -240,7 +231,7 @@
 }
 
 
-/* === Tablet View (Unchanged) === */
+/* === Tablet View === */
 @media (min-width: 769px) and (max-width: 1024px) {
   .profile-card {
     flex-direction: column;
@@ -274,7 +265,7 @@
   }
 }
 
-/* === Mobile View (Updated) === */
+/* === Mobile View === */
 @media (max-width: 768px) {
   .home-container {
     padding: 5.5rem 1rem 2rem 1rem;
@@ -315,7 +306,7 @@
   }
   .text-content h2.subheading {
     font-size: 1rem;
-    height: 1.2rem; /* Adjust height for mobile */
+    height: 1.2rem;
   }
   .text-content p.desc {
     font-size: 0.95rem;
@@ -323,7 +314,7 @@
 
   .tech-stack {
     justify-content: center;
-    gap: 0.5rem; /* Tighter gap for chips */
+    gap: 0.5rem;
   }
   .tech-chip {
     width: 38px;
@@ -334,17 +325,16 @@
   .social-links {
     justify-content: center;
     flex-wrap: wrap; 
-    gap: 0.75rem; /* Tighter gap */
+    gap: 0.75rem;
   }
   .social-link-btn {
-    padding: 0.4rem 0.8rem; /* Slightly smaller */
+    padding: 0.4rem 0.8rem; 
   }
   .btn-cv {
-    margin-left: 0; /* Let it wrap normally */
+    margin-left: 0; 
   }
 }
 
-/* === Flipper (Unchanged) === */
 .flipper {
   position: relative;
   width: 100%;
@@ -359,7 +349,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; /* For Safari */
+  -webkit-backface-visibility: hidden; 
   backface-visibility: hidden; 
   border-radius: 50%;
 }

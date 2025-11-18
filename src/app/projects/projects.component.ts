@@ -1,6 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
-import { Project } from './projects.model'; // Updated import
+import { Project } from './projects.model'; 
 
 @Component({
   selector: 'app-projects',
@@ -13,7 +13,6 @@ export class ProjectsComponent implements AfterViewInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-  // Helper to format tags for CSS classes
   getTagClass(tag: string): string {
     return tag.toLowerCase().replace(/[^a-z0-9]/g, '-');
   }
@@ -23,8 +22,7 @@ export class ProjectsComponent implements AfterViewInit {
     {
       header: '🔐 UEBA Cybersecurity Dashboard',
       subheader: 'Professional Experience | GhangorCloud | March 2023 - March 2024',
-      // UPDATED DESCRIPTION: Replaced 50,000+ with 'thousands of events daily' and added professional statement.
-      description: 'Architected a major enterprise-grade security analytics feature processing thousands of events daily, which resulted in a 40% reduction in analyst investigation time. This project was a cornerstone of my professional development, offering extensive experience in building robust, scalable front-end systems for mission-critical security applications. This work is not publicly accessible on GitHub.',
+      description: 'Built a major enterprise-grade security analytics feature processing thousands of events daily, which resulted in a 40% reduction in analyst investigation time. This project was a cornerstone of my professional development, offering extensive experience in building robust, scalable front-end systems for mission-critical security applications. This work is not publicly accessible on GitHub.',
       achievements: [
         'Built 18 custom data visualization components using Angular & TypeScript.',
         'Integrated 20+ RESTful APIs to ensure a high-availability, near-real-time data stream for continuous threat monitoring.',
@@ -37,7 +35,7 @@ export class ProjectsComponent implements AfterViewInit {
     {
       header: '🏥 DiGA (Digital Health Application)',
       subheader: 'Medical Informatics Project | University of Marburg Hospital | Summer Semester 2025',
-      description: 'Contributed to the development of a Django web application for physicians to collect, organize, and present comprehensive information on Digital Health Applications (DiGAs). The application features semantic search using Qdrant and deployment on Microsoft Azure.',
+      description: 'Developed a Django web application for physicians to collect, organize, and present comprehensive information on Digital Health Applications (DiGAs). The application features semantic search using Qdrant and deployment on Microsoft Azure.',
       achievements: [
         'Extended data model to include lists of screenshots, videos, advantages, and disadvantages.',
         'Enhanced search functionality using Qdrant vector embeddings for improved search relevance.',
@@ -65,7 +63,6 @@ export class ProjectsComponent implements AfterViewInit {
     }
   ];
 
-  // --- TIER 2 PROJECTS ---
   tier2Projects: Project[] = [
     {
       header: '♻️ ERASE - Trash Detection System',
@@ -112,7 +109,6 @@ export class ProjectsComponent implements AfterViewInit {
     }
   ];
 
-  // --- INTERSECTION OBSERVER LOGIC ---
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.setupIntersectionObserver();
@@ -132,7 +128,6 @@ export class ProjectsComponent implements AfterViewInit {
     }, options);
 
     this.animatedElements.forEach((el, index) => {
-      // Stagger the animation
       (el.nativeElement as HTMLElement).style.transitionDelay = `${Math.min(index * 100, 500)}ms`;
       this.observer.observe(el.nativeElement);
     });

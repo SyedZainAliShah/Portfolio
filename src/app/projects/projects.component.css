@@ -37,7 +37,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  margin-bottom: 4rem; /* Space between tiers */
+  margin-bottom: 4rem; 
 }
 
 .tier-2-grid {
@@ -47,7 +47,6 @@
 }
 
 @media (min-width: 992px) {
-  /* On large screens, Tier 2 can have up to 3 columns */
   .tier-2-grid {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   }
@@ -66,7 +65,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   text-decoration: none;
   color: inherit;
-  position: relative; /* For highlight badge */
+  position: relative; 
 }
 
 .project-card:hover {
@@ -75,12 +74,10 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Tier 1 cards are larger and have more padding */
 .tier-1-card {
   padding: 2rem;
 }
 
-/* === Card Content === */
 .project-card h3 {
   font-size: 1.6rem;
   font-weight: 600;
@@ -95,7 +92,7 @@
 .subheader {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #5792bb; /* Accent color for subheader */
+  color: #5792bb;
   margin-bottom: 1rem;
 }
 
@@ -126,7 +123,7 @@
 }
 
 .card-spacer {
-  flex-grow: 1; /* Pushes tags/buttons to the bottom in Tier 2 */
+  flex-grow: 1; 
 }
 
 .highlight-badge {
@@ -142,13 +139,12 @@
   font-weight: 600;
 }
 
-/* === Tags (Unchanged) === */
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: auto; /* Pushes to bottom */
-  padding-top: 1.5rem; /* Space above tags */
+  margin-top: auto;
+  padding-top: 1.5rem; 
 }
 
 .tag {
@@ -161,7 +157,6 @@
   font-weight: 500;
 }
 
-/* === NEW: Button Container & Styles === */
 .buttons-container {
   display: flex;
   flex-wrap: wrap;
@@ -196,7 +191,6 @@
   color: #f0f0f0;
 }
 
-/* Primary button style (for Live Demo / Play Game) */
 .project-button.btn-primary {
   background-color: #5792bb;
   border-color: #5792bb;
@@ -209,8 +203,6 @@
   color: #ffffff;
 }
 
-
-/* === Animation Control (Updated) === */
 .projects-header,
 .tier-1-card,
 .tier-2-card,
@@ -229,7 +221,6 @@
 }
 
 
-/* === Responsive (Updated) === */
 @media (max-width: 768px) {
   .projects-section {
     padding: 3rem 1rem;
@@ -239,7 +230,6 @@
     font-size: 2.25rem;
   }
 
-  /* Stack both grids on mobile */
   .tier-1-grid,
   .tier-2-grid {
     grid-template-columns: 1fr;

@@ -271,7 +271,6 @@
   text-align: right;
 }
 
-/* New Quick Facts Card Styles */
 .quick-facts-list {
   display: flex;
   flex-direction: column;
@@ -308,7 +307,6 @@
   font-size: 0.95rem;
 }
 
-/* === 6. Passion Project Section (Unchanged) === */
 .passion-section {
   background: hsl(216deg 8.2% 11.96%);
   border-radius: 16px;
@@ -328,10 +326,8 @@
 .social-links a { color: #A8A8A8; font-size: 1.5rem; transition: color 0.2s ease, transform 0.2s ease; }
 .social-links a:hover { color: #5792bb; transform: scale(1.1); }
 
-/* === Animation Control (Unchanged) === */
 .summary-section, .job-item, .skill-tabs, 
 .skills-badge-container, .education-entry, .info-card, .passion-section,
-/* This now only targets top-level section-titles, not nested ones */
 .experience-section > .section-title,
 .skills-section > .section-title,
 .education-section > .section-title {
@@ -344,7 +340,6 @@
   transform: translateY(0) !important;
 }
 
-/* === Responsive Design (Unchanged) === */
 @media (max-width: 768px) {
   .about-section {
     padding: 3rem 1rem;
@@ -360,7 +355,6 @@
   }
 }
 
-/* === Autofill Styles (Unchanged) === */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

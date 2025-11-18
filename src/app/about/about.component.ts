@@ -1,18 +1,17 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, OnInit, QueryList, ViewChildren, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 
-// ... (Interfaces are unchanged)
 export interface Skill {
   name: string;
   category: 'Frontend' | 'Backend' | 'Database' | 'AI/ML' | 'DevOps';
-  icon: string; // Font Awesome icon class
+  icon: string; 
 }
 
 export interface Education {
   degree: string;
   university: string;
   period: string;
-  logoUrl?: string; // Optional logo
+  logoUrl?: string; 
   courses: {
     title: string;
     list: string[];
@@ -49,9 +48,7 @@ export class AboutComponent implements OnInit {
       company: 'GhangorCloud (Cybersecurity)',
       period: '03/2023 – 03/2024',
       points: [
-        // UPDATED: Mentioning both the UEBA platform and the new compliance product
-        'Contributed to the development and architecture of two major product initiatives: the User and Entity Behavior Analytics (UEBA) platform and a new Data Compliance offering (Angular/Java Spring Boot).',
-        // Removed bolding and refined language
+        'Designed and architected of two major product initiatives: the User and Entity Behavior Analytics (UEBA) platform and a new Data Compliance offering (Angular/Java Spring Boot).',
         'Engineered a suite of high-performance data visualization components (TypeScript/Kendo UI) to represent behavioral anomalies, risk scores, and activity timelines.',
         'Integrated 20+ RESTful APIs to ensure a high-availability, near-real-time data stream for continuous threat monitoring.',
         'Streamlined the analyst investigation process by collaborating with UI/UX designers to translate complex cybersecurity requirements into an intuitive and results-driven interface.'
@@ -62,9 +59,8 @@ export class AboutComponent implements OnInit {
       company: 'GhangorCloud',
       period: '09/2022 – 02/2023',
       points: [
-        // Removed bolding
         'Developed responsive data visualization components, including dynamic charts and data grids, in Angular and Kendo UI for the real-time analysis of large datasets.',
-        'Contributed to application performance by optimizing front-end logic and resolving critical stability bugs in the core Angular codebase.',
+        'Optimized front-end logic and resolving critical stability bugs in the core Angular codebase.',
         'Improved usability and user interface appeal for several data-centric applications through targeted front-end styling and layout enhancements (Bootstrap CSS).'
       ]
     },
@@ -150,7 +146,7 @@ export class AboutComponent implements OnInit {
   filteredSkills: Skill[] = [];
 
   ngOnInit() {
-    this.filterSkills('All'); // Initialize filter
+    this.filterSkills('All'); 
   }
 
   filterSkills(category: string) {
@@ -168,7 +164,6 @@ export class AboutComponent implements OnInit {
     { name: 'German', proficiency: 'A2.2 (Actively Learning)' }
   ];
 
-  // --- Quick Facts Array ---
   quickFacts = [
     { label: 'Location', value: 'Marburg, Germany', icon: 'fas fa-map-marker-alt' },
     { label: 'Current Status', value: 'M.Sc. Computer Science Student', icon: 'fas fa-graduation-cap' },
@@ -177,7 +172,6 @@ export class AboutComponent implements OnInit {
     { label: 'Availability', value: 'Werkstudent and Internship (20hrs/week)', icon: 'fas fa-calendar-check' }
   ];
 
-  // ... (Intersection Observer logic is unchanged) ...
   private initIntersectionObserver() {
     const options = { root: null, rootMargin: '0px', threshold: 0.1 };
     this.observer = new IntersectionObserver((entries, observer) => {

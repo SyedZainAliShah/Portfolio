@@ -20,11 +20,11 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px; /* Give the header a fixed height */
+  height: 60px; 
 }
 
 .desktop-nav {
-  display: flex; /* Visible by default on desktop */
+  display: flex; 
   gap: 2rem;
 }
 
@@ -36,14 +36,13 @@ header {
 }
 
 .desktop-nav a:hover {
-  color: #5792bb; /* Your accent color */
+  color: #5792bb; 
 }
 
-/* --- HAMBURGER & MOBILE MENU (HIDDEN ON DESKTOP) --- */
 .hamburger {
-  display: none; /* Hidden by default on desktop */
+  display: none; 
   position: relative;
-  z-index: 101; /* Ensure it's above the overlay */
+  z-index: 101; 
   background: none;
   border: none;
   cursor: pointer;
@@ -60,7 +59,7 @@ header {
 }
 
 .mobile-menu {
-  display: none; /* Hidden by default */
+  display: none;
 }
 
 main {
@@ -70,11 +69,9 @@ main {
   isolation: isolate;
   overflow-x: hidden;
 
-  /* Define the variables we will animate */
   --orange-stop: 41%;
   --blue-stop: 52%;
 
-  /* Rebuild the gradient using the variables */
   background: radial-gradient(
     circle at 50% 119%,
     #f27b01 var(--orange-stop),
@@ -82,7 +79,6 @@ main {
     #000000 72%
   ) fixed;
 
-  /* Apply the animation */
   animation: breathe 12s ease-in-out infinite;
 }
 main::before {
@@ -122,9 +118,9 @@ main::after {
   }
 }
 
-/* === NEW FOOTER STYLES === */
+/* === FOOTER STYLES === */
 footer {
-  background-color: #101018; /* A very dark, near-black color */
+  background-color: #101018; 
   color: #A8A8A8;
   padding: 1.5rem 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -136,7 +132,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  flex-wrap: wrap; 
   gap: 1rem;
 }
 
@@ -164,11 +160,10 @@ footer {
 }
 
 .footer-socials a:hover {
-  color: #5792bb; /* Your accent color */
+  color: #5792bb; 
   transform: scale(1.1);
 }
 
-/* Responsive adjustments for the footer */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
@@ -185,7 +180,6 @@ footer {
 }
 
 @keyframes breathe {
-  /* At the halfway point, the color stops will expand */
   50% {
     --orange-stop: 45%;
     --blue-stop: 58%;
@@ -195,17 +189,16 @@ footer {
 /* --- MOBILE STYLES (WHEN SCREEN IS 768px OR LESS) --- */
 @media (max-width: 768px) {
   .desktop-nav {
-    display: none; /* Hide desktop nav on mobile */
+    display: none; 
   }
 
   .hamburger {
-    display: block; /* Show hamburger button on mobile */
-    position: fixed; /* Make it stay in place */
+    display: block;
+    position: fixed;
     top: 15px;
     right: 15px;
   }
 
-  /* Hamburger animation to 'X' */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -234,7 +227,7 @@ footer {
   }
 
   .mobile-menu.active {
-    transform: translateX(0); /* Slide in when active */
+    transform: translateX(0);
   }
 
   .mobile-menu a {

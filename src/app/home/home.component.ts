@@ -10,7 +10,6 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
 })
 export class HomeComponent implements OnInit { 
   
-  // --- Properties for Typing Animation ---
   typedText = ''; 
   private titles = [
     "Full-Stack Developer",
@@ -25,21 +24,17 @@ export class HomeComponent implements OnInit {
   private deletingSpeed = 50;
   private pauseTime = 2000;
   
-  // --- Existing Properties ---
   clickCount = 0;
   isFlipped = false;
 
-  // --- 1. Inject PLATFORM_ID ---
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-  // --- 2. Add the browser check ---
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.type();
     }
   }
 
-  // --- 3. The animation logic (unchanged) ---
   private type() {
     const currentTitle = this.titles[this.titleIndex];
     let typeDelay: number;
@@ -63,11 +58,9 @@ export class HomeComponent implements OnInit {
       typeDelay = 500;
     }
 
-    // This will now only run in the browser
     setTimeout(() => this.type(), typeDelay);
   }
 
-  // --- Existing Image Click Logic (unchanged) ---
   onImageClick() {
     this.clickCount++;
 

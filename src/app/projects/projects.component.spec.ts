@@ -8,9 +8,8 @@ describe('ProjectsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProjectsComponent], // Use 'declarations' for module-based components
+      declarations: [ProjectsComponent], 
       providers: [
-        // Provide a mock value for the injected PLATFORM_ID
         { provide: PLATFORM_ID, useValue: 'browser' } 
       ]
     })

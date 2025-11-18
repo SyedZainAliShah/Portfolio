@@ -10,11 +10,9 @@ export class ContactComponent implements AfterViewInit {
   @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
   private observer!: IntersectionObserver;
 
-  // A constructor is added to inject the platform ID
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngAfterViewInit() {
-    // This check ensures the animation code only runs in a browser
     if (isPlatformBrowser(this.platformId)) {
       this.setupIntersectionObserver();
     }
@@ -36,7 +34,6 @@ export class ContactComponent implements AfterViewInit {
       });
     }, options);
 
-    // This will apply the animation to the single contact card
     this.animatedElements.forEach((el) => {
       this.observer.observe(el.nativeElement);
     });
