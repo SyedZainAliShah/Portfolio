@@ -8,9 +8,9 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit { 
-  
-  typedText = ''; 
+export class HomeComponent implements OnInit {
+
+  typedText = '';
   private titles = [
     "Full-Stack Developer",
     "AI/LLM Engineer",
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   private typingSpeed = 100;
   private deletingSpeed = 50;
   private pauseTime = 2000;
-  
+
   clickCount = 0;
   isFlipped = false;
 
@@ -60,6 +60,12 @@ export class HomeComponent implements OnInit {
     }
 
     setTimeout(() => this.type(), typeDelay);
+  }
+
+  scrollTo(id: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   onImageClick() {

@@ -22,7 +22,7 @@ export class ProjectsComponent implements AfterViewInit {
     {
       header: '🛡️ SecureAudit - Agentic Security Auditor',
       subheader: 'AI/LLM Project | Python · FastAPI · Angular 19 · Groq/Gemini/Ollama',
-      description: 'An agentic OWASP Top 10 & GDPR auditor: it plans, runs deterministic tools (static analysis + live OSV.dev CVE lookups), then has an LLM review the code and the tool findings — streaming every step in a live timeline. Local-first with Ollama, or hosted on free-tier inference. Try the live demo.',
+      description: 'An agentic OWASP Top 10 & GDPR auditor: it plans, runs deterministic tools (static analysis + live OSV.dev CVE lookups), then has an LLM review the code and the tool findings, streaming every step in a live timeline. Local-first with Ollama, or hosted on free-tier inference. Try the live demo.',
       achievements: [
         'Agentic pipeline (plan → tools → LLM synthesis → merge) with a real-time SSE step timeline.',
         'Deterministic + AI hybrid: a static scanner and OSV.dev CVE lookups produce findings that cannot be hallucinated; the LLM adds context issues on top.',
@@ -97,7 +97,7 @@ export class ProjectsComponent implements AfterViewInit {
     {
       header: '⌨️ Typathon - Angular Typing Game',
       subheader: 'Frontend Project | Angular & TypeScript',
-      description: 'A clean typing practice game built with Angular and TypeScript — playable in the browser via GitHub Pages.',
+      description: 'A clean typing practice game built with Angular and TypeScript, playable in the browser via GitHub Pages.',
       achievements: [
         'Live per-character feedback: every keystroke graded correct/incorrect in real time.',
         'Fresh practice text generated on every round with Faker.js.',

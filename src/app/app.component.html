@@ -1,24 +1,49 @@
-<header>
-  <nav class="desktop-nav">
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <button class="hamburger" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
-    <span></span>
-    <span></span>
-    <span></span>
+<header class="site-header" [class.menu-open]="menuOpen">
+  <button class="menu-toggle" type="button" (click)="toggleMenu()"
+          [class.open]="menuOpen" [attr.aria-expanded]="menuOpen"
+          aria-controls="staggered-menu" aria-label="Toggle navigation menu">
+    <span class="menu-toggle-label">
+      <span class="mt-word mt-open">Menu</span>
+      <span class="mt-word mt-close">Close</span>
+    </span>
+    <span class="menu-toggle-icon" aria-hidden="true">
+      <span></span>
+      <span></span>
+    </span>
   </button>
-
-  <div class="mobile-menu" [class.active]="isMobileMenuOpen">
-    <a href="#home" (click)="closeMobileMenu()">Home</a>
-    <a href="#projects" (click)="closeMobileMenu()">Projects</a>
-    <a href="#about" (click)="closeMobileMenu()">About</a>
-    <a href="#contact" (click)="closeMobileMenu()">Contact</a>
-  </div>
 </header>
+
+<!-- Staggered overlay menu -->
+<div class="stagger-menu" id="staggered-menu" [class.open]="menuOpen">
+  <div class="stagger-backdrop" (click)="closeMenu()"></div>
+
+  <div class="stagger-prelayer layer-1" aria-hidden="true"></div>
+  <div class="stagger-prelayer layer-2" aria-hidden="true"></div>
+
+  <aside class="stagger-panel" role="dialog" aria-modal="true" aria-label="Main menu">
+    <nav class="stagger-nav">
+      @for (link of navLinks; track link.href; let i = $index) {
+        <a class="stagger-link" [href]="link.href" (click)="closeMenu()"
+           [style.transition-delay.ms]="menuOpen ? (300 + i * 80) : 0">
+          <span class="stagger-index">{{ '0' + (i + 1) }}</span>
+          <span class="stagger-text">{{ link.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="stagger-socials"
+         [style.transition-delay.ms]="menuOpen ? (300 + navLinks.length * 80) : 0">
+      <span class="stagger-socials-label">Socials</span>
+      <div class="stagger-socials-row">
+        @for (s of socials; track s.url) {
+          <a [href]="s.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="s.label">
+            <i [class]="s.icon"></i>
+          </a>
+        }
+      </div>
+    </div>
+  </aside>
+</div>
 
 
 <main class="complete">

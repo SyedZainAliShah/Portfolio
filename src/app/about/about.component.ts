@@ -40,7 +40,7 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  professionalSummary = "A full-stack Software Engineer who ships AI into real products. My professional foundation is enterprise web development — Angular frontends and Spring Boot backends for cybersecurity platforms — and my recent work brings LLMs into production: a fully local OWASP/GDPR code auditor (SecureAudit) and a RAG-powered digital-health assistant for Marburg University Hospital. I take full ownership of projects, from architecture to deployment, and care equally about measurable results and polished user experiences.";
+  professionalSummary = "A full-stack Software Engineer who ships AI into real products. My professional foundation is enterprise web development, building Angular frontends and Spring Boot backends for cybersecurity platforms, and my recent work brings LLMs into production: a fully local OWASP/GDPR code auditor (SecureAudit) and a RAG-powered digital-health assistant for Marburg University Hospital. I take full ownership of projects, from architecture to deployment, and care equally about measurable results and polished user experiences.";
 
   experience = [
     {
@@ -163,12 +163,12 @@ export class AboutComponent implements OnInit {
 
   activities = [
     {
-      title: 'iGEM 2026 — Team Marburg',
+      title: 'iGEM 2026: Team Marburg',
       role: 'Dry Lab & Wiki Contributor',
-      period: '2026 – Present',
+      period: '2026 - Present',
       badge: 'Paris Finals · Nov 2026',
       icon: 'fas fa-dna',
-      description: "Contributing to my university's team for iGEM 2026, the world's largest synthetic biology competition, with the Grand Jamboree finals in Paris this November. A cross-disciplinary team spanning wet lab, dry lab, and software.",
+      description: "Contributing to my university's team for iGEM 2026, the world's largest synthetic biology competition, with the Grand Jamboree finals in Paris this November. It is a cross-disciplinary team spanning wet lab and dry lab.",
       points: [
         'Collaborating in a large multidisciplinary team on tools that visualize protein structures from AlphaFold data.',
         'Building and maintaining the team wiki that presents the project to the global iGEM community.',

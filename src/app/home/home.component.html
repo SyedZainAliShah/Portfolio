@@ -3,21 +3,25 @@
 
     <div class="text-content">
       <h1>SYED <span style="font-size: 1.1em;">ZAIN</span> ALI SHAH</h1>
-      
+
       <h2 class="subheading">
         {{ typedText }}<span class="typing-cursor">|</span>
       </h2>
-      
+
       <p class="desc">
-        Full-stack engineer who ships AI into production — Angular &amp; Spring Boot by trade, RAG pipelines and local LLMs by passion, with a cybersecurity background. Currently pursuing M.Sc. Computer Science at Philipps-Universität Marburg, Germany.
+        Full-stack engineer who ships AI into production. Angular &amp; Spring Boot by trade, RAG pipelines and local LLMs by passion, with a cybersecurity background. Currently pursuing M.Sc. Computer Science at Philipps-Universität Marburg, Germany.
       </p>
 
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/syedzainalishah" target="_blank" aria-label="LinkedIn" class="social-link-btn">
+      <div class="action-row">
+        <button type="button" class="action-btn" (click)="scrollTo('contact')">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>Get in touch</span>
+        </button>
+        <a href="https://www.linkedin.com/in/syedzainalishah" target="_blank" aria-label="LinkedIn" class="action-btn">
           <i class="fa-brands fa-linkedin"></i>
           <span>LinkedIn</span>
         </a>
-        <a href="https://github.com/SyedZainAliShah" target="_blank" aria-label="Github" class="social-link-btn">
+        <a href="https://github.com/SyedZainAliShah" target="_blank" aria-label="Github" class="action-btn">
           <i class="fa-brands fa-github"></i>
           <span>GitHub</span>
         </a>
@@ -28,16 +32,11 @@
         <span class="tech-chip" title="React"><i class="fa-brands fa-react"></i></span>
         <span class="tech-chip" title="Java"><i class="fa-brands fa-java"></i></span>
         <span class="tech-chip" title="Spring Boot"><i class="fa-solid fa-leaf"></i></span>
-       <span class="tech-chip" title="Python / FastAPI"><i class="fa-brands fa-python"></i></span>
+        <span class="tech-chip" title="Python / FastAPI"><i class="fa-brands fa-python"></i></span>
         <span class="tech-chip" title="LLMs / RAG"><i class="fa-solid fa-robot"></i></span>
         <span class="tech-chip" title="PostgreSQL"><i class="fa-solid fa-database"></i></span>
         <span class="tech-chip" title="Docker"><i class="fa-brands fa-docker"></i></span>
       </div>
-      
-      <div class="status-badge">
-        🇩🇪 Available for Werkstudent Positions
-      </div>
-
     </div>
 
     <div class="profile-image-container"
@@ -46,8 +45,8 @@
       <div class="flipper">
         <div class="flipper-front">
           <div class="animated-glow"></div>
-          <img src="./assets/zain.png" 
-              alt="Syed Zain Ali Shah" 
+          <img src="./assets/zain.png"
+              alt="Syed Zain Ali Shah"
               class="profile-picture">
         </div>
         <div class="flipper-back">
@@ -55,5 +54,16 @@
         </div>
       </div>
     </div>
+
+    <div class="card-footer">
+      <div class="status-badge">
+        🇩🇪 Available for Werkstudent Positions
+      </div>
+      <button type="button" class="action-btn btn-primary card-cta" (click)="scrollTo('projects')">
+        <span>View My Work</span>
+        <i class="fa-solid fa-arrow-down"></i>
+      </button>
+    </div>
+
   </div>
 </div>

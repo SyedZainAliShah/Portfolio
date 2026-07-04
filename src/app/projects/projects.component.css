@@ -198,13 +198,13 @@
 .project-button.btn-primary {
   background-color: #5792bb;
   border-color: #5792bb;
-  color: #ffffff;
+  color: #0b0d10;
 }
 
 .project-button.btn-primary:hover {
   background-color: #6aaadd;
   border-color: #6aaadd;
-  color: #ffffff;
+  color: #0b0d10;
 }
 
 .projects-header,
