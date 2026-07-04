@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   typedText = ''; 
   private titles = [
     "Full-Stack Developer",
+    "AI/LLM Engineer",
     "Angular Specialist",
     "Spring Boot Developer",
     "Cybersecurity Enthusiast"

@@ -1,6 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
-import { Project } from './projects.model'; 
+import { Project } from './projects.model';
 
 @Component({
   selector: 'app-projects',
@@ -20,14 +20,31 @@ export class ProjectsComponent implements AfterViewInit {
   // --- TIER 1 PROJECTS ---
   tier1Projects: Project[] = [
     {
+      header: '🛡️ SecureAudit - Agentic Security Auditor',
+      subheader: 'AI/LLM Project | Python · FastAPI · Angular 19 · Groq/Gemini/Ollama',
+      description: 'An agentic OWASP Top 10 & GDPR auditor: it plans, runs deterministic tools (static analysis + live OSV.dev CVE lookups), then has an LLM review the code and the tool findings — streaming every step in a live timeline. Local-first with Ollama, or hosted on free-tier inference. Try the live demo.',
+      achievements: [
+        'Agentic pipeline (plan → tools → LLM synthesis → merge) with a real-time SSE step timeline.',
+        'Deterministic + AI hybrid: a static scanner and OSV.dev CVE lookups produce findings that cannot be hallucinated; the LLM adds context issues on top.',
+        'Multi-provider LLM abstraction (Groq / Gemini / Ollama) with automatic fallback.',
+        'Evaluation harness scoring precision / recall / F1 on a labeled dataset (1.00 / 0.91 / 0.95), gated in CI.',
+        'CI/CD via GitHub Actions (lint · tests · eval gate · build) with automated deployment to a live cloud demo.'
+      ],
+      tags: ['Python', 'FastAPI', 'LLM', 'Agentic', 'RAG', 'Angular', 'Docker', 'CI/CD', 'OWASP', 'GDPR'],
+      highlightBadge: '🚀 Live Demo',
+      buttons: [
+        { label: 'Live Demo', url: 'https://secureaudit-byev.onrender.com/', icon: 'fas fa-arrow-up-right-from-square', styleClass: 'btn-primary' },
+        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/SecureAudit', icon: 'fab fa-github' }
+      ]
+    },
+    {
       header: '🔐 UEBA Cybersecurity Dashboard',
       subheader: 'Professional Experience | GhangorCloud | March 2023 - March 2024',
       description: 'Built a major enterprise-grade security analytics feature processing thousands of events daily, which resulted in a 40% reduction in analyst investigation time. This project was a cornerstone of my professional development, offering extensive experience in building robust, scalable front-end systems for mission-critical security applications. This work is not publicly accessible on GitHub.',
       achievements: [
         'Built 18 custom data visualization components using Angular & TypeScript.',
-        'Integrated 20+ RESTful APIs to ensure a high-availability, near-real-time data stream for continuous threat monitoring.',
-        'Optimized state management to handle thousands of concurrent updates smoothly.',
-        'Improved threat detection efficiency by 35% through intuitive UX design.'
+        'Integrated 20+ RESTful APIs for near-real-time threat monitoring, improving threat detection efficiency by 35%.',
+        'Optimized state management to handle thousands of concurrent updates smoothly.'
       ],
       tags: ['Angular', 'TypeScript', 'Kendo UI', 'RESTful APIs', 'State Management', 'Springboot', 'Java', 'Cybersecurity'],
       buttons: []
@@ -42,21 +59,21 @@ export class ProjectsComponent implements AfterViewInit {
         'Streamlined Azure deployment using environment variables to ensure database persistence across redeployments.',
         'Developed an LLM Chatbot prototype using Ollama and Gradio for research and development.'
       ],
-      tags: ['Django', 'Python', 'Qdrant', 'Azure', 'GDPR', 'Healthcare IT'],
+      tags: ['Django', 'Python', 'Qdrant', 'Ollama', 'Azure', 'GDPR', 'Healthcare IT'],
       highlightBadge: '🇩🇪 German Healthcare Project',
       buttons: []
     },
     {
       header: '🛒 Pineapple E-commerce Platform',
       subheader: 'Full-Stack MERN Application | Personal Project',
-      description: 'A modern men\'s clothing website built using the MERN stack, designed to offer a seamless shopping experience. Features include product browsing, user authentication (signup/login), a secure payment gateway, add-to-cart functionality, and a responsive design.',
+      description: 'A men\'s clothing storefront built on the MERN stack. Customers browse and filter a live product catalog; admins manage products and categories through a protected dashboard.',
       achievements: [
-        'Full-featured product catalog supporting 500+ items.',
-        'Integrated Braintree payment gateway.',
-        'Implemented JWT authentication and authorization.',
+        'Product catalog with search, category filters, and price-range filtering.',
+        'JWT authentication with role-based route guards (user vs. admin).',
+        'Admin dashboard for product/category management with image upload.',
         'Responsive design for mobile and desktop.'
       ],
-      tags: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Braintree'],
+      tags: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT'],
       buttons: [
         { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Pineapple', icon: 'fab fa-github' }
       ]
@@ -64,6 +81,22 @@ export class ProjectsComponent implements AfterViewInit {
   ];
 
   tier2Projects: Project[] = [
+    {
+      header: '🧬 iGEM 2026 — Team Marburg',
+      subheader: 'International Synthetic Biology Competition | Dry Lab & Wiki | 2026 – Present',
+      description: 'Contributing to my university\'s team for iGEM 2026, the world\'s largest synthetic biology competition, with the Grand Jamboree finals in Paris this November. A cross-disciplinary team spanning wet lab, dry lab, and software — I work on the dry-lab tooling and the project wiki.',
+      achievements: [
+        'Collaborating in a large multidisciplinary team on tools that visualize protein structures from AlphaFold data.',
+        'Building and maintaining the team wiki that documents and presents the project to the global iGEM community.',
+        'Joining the dry-lab (computational) workstream, bringing a software-engineering perspective to a biology-led project.',
+        'Working on it daily under a fixed competition timeline — practising fast onboarding, teamwork, and delivery.'
+      ],
+      tags: ['Synthetic Biology', 'Dry Lab', 'AlphaFold', 'Data Visualization', 'Web / Wiki', 'Teamwork'],
+      highlightBadge: '🇫🇷 Paris Finals — Nov 2026',
+      buttons: [
+        { label: 'About iGEM', url: 'https://igem.org/', icon: 'fas fa-arrow-up-right-from-square' }
+      ]
+    },
     {
       header: '♻️ ERASE - Trash Detection System',
       subheader: 'Machine Learning Project | YOLOv4 & Kotlin',
@@ -89,20 +122,18 @@ export class ProjectsComponent implements AfterViewInit {
         'Swagger API documentation.'
       ],
       tags: ['NestJS', 'Node.js', 'PostgreSQL', 'Docker', 'TypeScript'],
-      buttons: [
-        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/taskboard', icon: 'fab fa-github' }
-      ]
+      buttons: []
     },
     {
       header: '⌨️ Typathon - Angular Typing Game',
       subheader: 'Frontend Project | Angular & TypeScript',
-      description: 'Created an interactive typing game to master modern Angular development principles and TypeScript best practices.',
+      description: 'A clean typing practice game built with Angular and TypeScript — playable in the browser via GitHub Pages.',
       achievements: [
-        'Real-time WPM and accuracy tracking.',
-        'Multiple difficulty levels and random word generation.',
-        'Responsive design with smooth animations.'
+        'Live per-character feedback: every keystroke graded correct/incorrect in real time.',
+        'Fresh practice text generated on every round with Faker.js.',
+        'Deployed as a static Angular build on GitHub Pages.'
       ],
-      tags: ['Angular', 'TypeScript', 'RxJS', 'CSS'],
+      tags: ['Angular', 'TypeScript', 'CSS'],
       buttons: [
         { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Typathon', icon: 'fab fa-github' }
       ]

@@ -28,15 +28,19 @@
   text-align: center;
 }
 .summary-header h1 {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 .summary-text {
   font-size: 1.1rem;
-  color: #dddddd;
+  color: #dfe3e8;
   line-height: 1.8;
   margin-top: 1.5rem;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* === 2. Experience Timeline Section (Unchanged) === */
@@ -83,9 +87,9 @@
   gap: 0.5rem;
 }
 .job-header h3 { font-size: 1.2rem; font-weight: 600; margin: 0; color: #E6E6E6; }
-.job-header .job-period { font-size: 0.85rem; color: #A8A8A8; font-style: italic; white-space: nowrap; }
+.job-header .job-period { font-family: var(--font-mono, monospace); font-size: 0.72rem; color: var(--text-muted, #9aa3ad); white-space: nowrap; }
 .job-company { font-size: 1rem; color: #5792bb; font-weight: 500; margin: 0 0 1rem 0; }
-.job-points { list-style-type: none; padding-left: 0; margin: 0; color: #A8A8A8; }
+.job-points { list-style-type: none; padding-left: 0; margin: 0; color: var(--text, #cdd4dc); }
 .job-points li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; font-size: 0.9rem; line-height: 1.6; }
 .job-points li::before { content: '•'; position: absolute; left: 0.25rem; color: #5792bb; font-size: 1.2rem; line-height: 1; }
 
@@ -136,7 +140,7 @@
   gap: 0.5rem;
   background-color: rgba(22, 22, 34, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #c0c0c0;
+  color: var(--text, #cdd4dc);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -198,8 +202,8 @@
   margin: 0 0 0.25rem 0;
   color: #E6E6E6;
 }
-.education-info p { margin: 0 0 0.25rem 0; color: #A8A8A8; font-size: 0.9rem; }
-.education-info span { font-size: 0.85rem; color: #888; }
+.education-info p { margin: 0 0 0.25rem 0; color: var(--text-muted, #9aa3ad); font-size: 0.9rem; }
+.education-info span { font-family: var(--font-mono, monospace); font-size: 0.72rem; color: var(--text-muted, #9aa3ad); }
 
 .coursework h4 {
   font-size: 1rem;
@@ -211,7 +215,7 @@
   list-style: disc;
   padding-left: 1.25rem;
   margin: 0;
-  color: #A8A8A8;
+  color: var(--text, #cdd4dc);
   font-size: 0.9rem;
   line-height: 1.6;
 }
@@ -265,7 +269,7 @@
 .lang-name { font-size: 1rem; font-weight: 500; color: #E6E6E6; margin: 0; }
 .lang-proficiency {
   font-size: 0.9rem;
-  color: #A8A8A8;
+  color: var(--text-muted, #9aa3ad);
   margin: 0;
   font-style: italic;
   text-align: right;
@@ -302,7 +306,7 @@
 }
 
 .fact-value {
-  color: #A8A8A8;
+  color: var(--text-muted, #9aa3ad);
   text-align: right;
   font-size: 0.95rem;
 }
@@ -321,9 +325,9 @@
 .passion-content { padding: 2rem; }
 .passion-content .section-title { margin-bottom: 0.5rem; }
 .passion-content h3 { font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0; color: #E6E6E6; }
-.passion-content p { color: #A8A8A8; line-height: 1.7; margin: 0; }
+.passion-content p { color: var(--text, #cdd4dc); line-height: 1.7; margin: 0; max-width: 65ch; }
 .social-links { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
-.social-links a { color: #A8A8A8; font-size: 1.5rem; transition: color 0.2s ease, transform 0.2s ease; }
+.social-links a { color: var(--text-muted, #9aa3ad); font-size: 1.5rem; transition: color 0.2s ease, transform 0.2s ease; }
 .social-links a:hover { color: #5792bb; transform: scale(1.1); }
 
 .summary-section, .job-item, .skill-tabs, 
@@ -355,11 +359,4 @@
   }
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    box-shadow: 0 0 0px 1000px hsl(216deg 8.2% 11.96%) inset;
-    -webkit-text-fill-color: #f0f0f0;
-    transition: background-color 5000s ease-in-out 0s;
-}
+i

@@ -33,22 +33,24 @@
 }
 
 .text-content h1 {
-  font-size: 2.5rem; 
-  font-weight: 800; 
+  font-size: clamp(2.2rem, 3.5vw, 2.6rem);
+  font-weight: 800;
   margin: 0;
-  line-height: 1.2;
-  color: #f0f0f0;
+  line-height: 1.15;
+  letter-spacing: 0.015em;
+  color: var(--ink, #f0f2f5);
   text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  text-transform: uppercase; 
+  text-transform: uppercase;
 }
 
 .text-content h2.subheading {
-  font-size: 1.25rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 1rem;
   font-weight: 500;
-  color: #5792bb;
+  color: var(--accent-bright, #7ab3dd);
   margin: 0;
-  letter-spacing: 1px;
-  height: 1.5rem; 
+  letter-spacing: 0;
+  height: 1.5rem;
 }
 
 .typing-cursor {
@@ -61,10 +63,11 @@
 }
 
 .text-content p.desc {
-  font-size: 1.1rem;
-  color: #c0c0c0;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  color: var(--text, #cdd4dc);
+  line-height: 1.65;
   margin: 0;
+  max-width: 48ch;
 }
 
 /* Status Badge */
@@ -181,7 +184,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  opacity: 0.6;
+  opacity: 0.55;
   filter: blur(48px);
   animation: pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -211,14 +214,14 @@
 .profile-image-container {
   animation-name: fadeInUpWithTransform;
 }
-.profile-card { animation-delay: 1s; }
-.profile-image-container { animation-delay: 1.2s; }
-.text-content h1 { animation-delay: 1.4s; }
-.text-content h2.subheading { animation-delay: 1.6s; }
-.text-content p.desc { animation-delay: 1.8s; }
-.social-links { animation-delay: 2.0s; }
-.tech-stack { animation-delay: 2.2s; }
-.status-badge { animation-delay: 2.4s; }
+.profile-card { animation-delay: 0.25s; }
+.profile-image-container { animation-delay: 0.4s; }
+.text-content h1 { animation-delay: 0.5s; }
+.text-content h2.subheading { animation-delay: 0.6s; }
+.text-content p.desc { animation-delay: 0.7s; }
+.social-links { animation-delay: 0.8s; }
+.tech-stack { animation-delay: 0.9s; }
+.status-badge { animation-delay: 1s; }
 
 
 @keyframes fadeInUpWithTransform {

@@ -4,14 +4,14 @@ import { Component, OnInit, QueryList, ViewChildren, ElementRef, Inject, PLATFOR
 export interface Skill {
   name: string;
   category: 'Frontend' | 'Backend' | 'Database' | 'AI/ML' | 'DevOps';
-  icon: string; 
+  icon: string;
 }
 
 export interface Education {
   degree: string;
   university: string;
   period: string;
-  logoUrl?: string; 
+  logoUrl?: string;
   courses: {
     title: string;
     list: string[];
@@ -23,8 +23,8 @@ export interface Education {
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit { 
-  
+export class AboutComponent implements OnInit {
+
   private observer!: IntersectionObserver;
 
   @ViewChildren('animatedElement', { read: ElementRef })
@@ -40,8 +40,8 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  professionalSummary = "A highly ambitious and data-driven Software Engineer with a proven track record of designing and developing scalable, data-intensive applications. My deep interest in AI/ML and Cybersecurity complements my expertise in building high-performance features and creating effortless, pixel-perfect user experiences. I thrive on taking full ownership of projects, from shaping frontend architecture to deployment, and am eager to contribute to a company that values both craftsmanship and high-impact results.";
-  
+  professionalSummary = "A full-stack Software Engineer who ships AI into real products. My professional foundation is enterprise web development — Angular frontends and Spring Boot backends for cybersecurity platforms — and my recent work brings LLMs into production: a fully local OWASP/GDPR code auditor (SecureAudit) and a RAG-powered digital-health assistant for Marburg University Hospital. I take full ownership of projects, from architecture to deployment, and care equally about measurable results and polished user experiences.";
+
   experience = [
     {
       role: 'Software Engineer',
@@ -107,7 +107,6 @@ export class AboutComponent implements OnInit {
   ];
 
   allSkills: Skill[] = [
-    // ... (Frontend Skills)
     { name: 'Angular', category: 'Frontend', icon: 'fab fa-angular' },
     { name: 'React', category: 'Frontend', icon: 'fab fa-react' },
     { name: 'TypeScript', category: 'Frontend', icon: 'fab fa-js-square' },
@@ -117,7 +116,6 @@ export class AboutComponent implements OnInit {
     { name: 'CSS3', category: 'Frontend', icon: 'fab fa-css3-alt' },
     { name: 'TailwindCSS', category: 'Frontend', icon: 'fas fa-paint-brush' },
     { name: 'Bootstrap', category: 'Frontend', icon: 'fab fa-bootstrap' },
-    // ... (Backend Skills)
     { name: 'Java/Spring Boot', category: 'Backend', icon: 'fab fa-java' },
     { name: 'Node.js', category: 'Backend', icon: 'fab fa-node-js' },
     { name: 'Express.js', category: 'Backend', icon: 'fab fa-node-js' },
@@ -125,10 +123,14 @@ export class AboutComponent implements OnInit {
     { name: 'Django', category: 'Backend', icon: 'fab fa-python' },
     { name: 'FastAPI', category: 'Backend', icon: 'fab fa-python' },
     { name: 'RESTful APIs', category: 'Backend', icon: 'fas fa-exchange-alt' },
-    // ... (Database, AI/ML, DevOps Skills)
     { name: 'PostgreSQL', category: 'Database', icon: 'fas fa-database' },
     { name: 'MongoDB', category: 'Database', icon: 'fas fa-database' },
     { name: 'MySQL', category: 'Database', icon: 'fas fa-database' },
+    { name: 'Qdrant (Vector DB)', category: 'Database', icon: 'fas fa-database' },
+    { name: 'LLM Integration', category: 'AI/ML', icon: 'fas fa-robot' },
+    { name: 'RAG & Vector Search', category: 'AI/ML', icon: 'fas fa-magnifying-glass-chart' },
+    { name: 'Ollama / Llama 3', category: 'AI/ML', icon: 'fas fa-microchip' },
+    { name: 'Prompt Engineering', category: 'AI/ML', icon: 'fas fa-comment-dots' },
     { name: 'TensorFlow', category: 'AI/ML', icon: 'fas fa-brain' },
     { name: 'Keras', category: 'AI/ML', icon: 'fas fa-brain' },
     { name: 'YOLOv4', category: 'AI/ML', icon: 'fas fa-eye' },
@@ -138,6 +140,7 @@ export class AboutComponent implements OnInit {
     { name: 'Kubernetes', category: 'DevOps', icon: 'fas fa-cubes' },
     { name: 'Git/GitHub', category: 'DevOps', icon: 'fab fa-git-alt' },
     { name: 'AWS', category: 'DevOps', icon: 'fab fa-aws' },
+    { name: 'Azure', category: 'DevOps', icon: 'fas fa-cloud' },
     { name: 'CI/CD', category: 'DevOps', icon: 'fas fa-sync-alt' }
   ];
 
@@ -146,7 +149,7 @@ export class AboutComponent implements OnInit {
   filteredSkills: Skill[] = [];
 
   ngOnInit() {
-    this.filterSkills('All'); 
+    this.filterSkills('All');
   }
 
   filterSkills(category: string) {
@@ -161,14 +164,14 @@ export class AboutComponent implements OnInit {
   languages = [
     { name: 'English', proficiency: 'C2 (Fluent)' },
     { name: 'Urdu', proficiency: 'Native Speaker' },
-    { name: 'German', proficiency: 'A2.2 (Actively Learning)' }
+    { name: 'German', proficiency: 'B1 (Actively Learning)' }
   ];
 
   quickFacts = [
     { label: 'Location', value: 'Marburg, Germany', icon: 'fas fa-map-marker-alt' },
     { label: 'Current Status', value: 'M.Sc. Computer Science Student', icon: 'fas fa-graduation-cap' },
     { label: 'Primary Stack', value: 'Angular & Spring Boot Specialist', icon: 'fas fa-laptop-code' },
-    { label: 'Language Skills', value: 'Fluent English, Learning German', icon: 'fas fa-globe' },
+    { label: 'Language Skills', value: 'English C2, German B1', icon: 'fas fa-globe' },
     { label: 'Availability', value: 'Werkstudent and Internship (20hrs/week)', icon: 'fas fa-calendar-check' }
   ];
 

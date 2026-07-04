@@ -1,46 +1,83 @@
+/* ============================================
+   Design tokens
+   ============================================ */
+:root {
+  /* Brand — committed identity: near-black + orange→blue radial gradient */
+  --bg-base: #0b0d10;
+  --surface: hsl(216deg 8.2% 11.96%);
+  --surface-raised: hsl(216deg 8% 14.5%);
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --ink: #f0f2f5;            /* headings */
+  --text: #cdd4dc;           /* body on dark — ≥ 9:1 on surface */
+  --text-muted: #9aa3ad;     /* metadata — ≥ 4.6:1 on surface */
+
+  --accent: #5792bb;         /* signature blue */
+  --accent-bright: #7ab3dd;  /* hover / on-dark text accent */
+  --accent-warm: #f27b01;    /* signature orange — rare, deliberate */
+  --accent-tint: rgba(87, 146, 187, 0.14);
+
+  --font-sans: 'Archivo', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Martian Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  --radius-card: 16px;
+  --radius-chip: 20px;
+  --radius-btn: 8px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* semantic z-scale */
+  --z-sticky: 100;
+  --z-overlay: 200;
+}
+
+/* ============================================
+   Base
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
- 
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-variant: normal;
-  }
-  
-  header {
-    padding: 1rem;
-    background-color: hsl(0, 0%, 0%)
-  }
-  
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  nav a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  nav a:hover {
-    transform: scale(1.05);
-  }
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-base);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .hero, .about, .projects, .contact {
-    animation: fadeIn 1s ease-in-out;
-  }
+h1, h2, h3 {
+  text-wrap: balance;
+  color: var(--ink);
+}
 
-  .btn:hover {
-  transform: scale(1.05);
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* Visible, consistent keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+a, button {
+  font-family: inherit;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (max-width: 768px) {
@@ -48,8 +85,20 @@ body {
     flex-direction: column;
     align-items: center;
   }
+}
 
-  .hero h1 {
-    font-size: 2rem;
+/* ============================================
+   Reduced motion — every animation gets out of the way
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
