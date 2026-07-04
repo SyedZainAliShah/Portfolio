@@ -161,6 +161,24 @@ export class AboutComponent implements OnInit {
     }
   }
 
+  activities = [
+    {
+      title: 'iGEM 2026 — Team Marburg',
+      role: 'Dry Lab & Wiki Contributor',
+      period: '2026 – Present',
+      badge: 'Paris Finals · Nov 2026',
+      icon: 'fas fa-dna',
+      description: "Contributing to my university's team for iGEM 2026, the world's largest synthetic biology competition, with the Grand Jamboree finals in Paris this November. A cross-disciplinary team spanning wet lab, dry lab, and software.",
+      points: [
+        'Collaborating in a large multidisciplinary team on tools that visualize protein structures from AlphaFold data.',
+        'Building and maintaining the team wiki that presents the project to the global iGEM community.',
+        'Joining the dry-lab (computational) workstream, bringing a software-engineering perspective to a biology-led project.'
+      ],
+      tags: ['Synthetic Biology', 'Dry Lab', 'AlphaFold', 'Teamwork'],
+      link: { label: 'About iGEM', url: 'https://igem.org/' }
+    }
+  ];
+
   languages = [
     { name: 'English', proficiency: 'C2 (Fluent)' },
     { name: 'Urdu', proficiency: 'Native Speaker' },

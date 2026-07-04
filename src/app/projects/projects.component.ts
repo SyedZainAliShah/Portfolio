@@ -62,41 +62,10 @@ export class ProjectsComponent implements AfterViewInit {
       tags: ['Django', 'Python', 'Qdrant', 'Ollama', 'Azure', 'GDPR', 'Healthcare IT'],
       highlightBadge: '🇩🇪 German Healthcare Project',
       buttons: []
-    },
-    {
-      header: '🛒 Pineapple E-commerce Platform',
-      subheader: 'Full-Stack MERN Application | Personal Project',
-      description: 'A men\'s clothing storefront built on the MERN stack. Customers browse and filter a live product catalog; admins manage products and categories through a protected dashboard.',
-      achievements: [
-        'Product catalog with search, category filters, and price-range filtering.',
-        'JWT authentication with role-based route guards (user vs. admin).',
-        'Admin dashboard for product/category management with image upload.',
-        'Responsive design for mobile and desktop.'
-      ],
-      tags: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT'],
-      buttons: [
-        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Pineapple', icon: 'fab fa-github' }
-      ]
     }
   ];
 
   tier2Projects: Project[] = [
-    {
-      header: '🧬 iGEM 2026 — Team Marburg',
-      subheader: 'International Synthetic Biology Competition | Dry Lab & Wiki | 2026 – Present',
-      description: 'Contributing to my university\'s team for iGEM 2026, the world\'s largest synthetic biology competition, with the Grand Jamboree finals in Paris this November. A cross-disciplinary team spanning wet lab, dry lab, and software — I work on the dry-lab tooling and the project wiki.',
-      achievements: [
-        'Collaborating in a large multidisciplinary team on tools that visualize protein structures from AlphaFold data.',
-        'Building and maintaining the team wiki that documents and presents the project to the global iGEM community.',
-        'Joining the dry-lab (computational) workstream, bringing a software-engineering perspective to a biology-led project.',
-        'Working on it daily under a fixed competition timeline — practising fast onboarding, teamwork, and delivery.'
-      ],
-      tags: ['Synthetic Biology', 'Dry Lab', 'AlphaFold', 'Data Visualization', 'Web / Wiki', 'Teamwork'],
-      highlightBadge: '🇫🇷 Paris Finals — Nov 2026',
-      buttons: [
-        { label: 'About iGEM', url: 'https://igem.org/', icon: 'fas fa-arrow-up-right-from-square' }
-      ]
-    },
     {
       header: '♻️ ERASE - Trash Detection System',
       subheader: 'Machine Learning Project | YOLOv4 & Kotlin',
@@ -112,17 +81,18 @@ export class ProjectsComponent implements AfterViewInit {
       ]
     },
     {
-      header: '📋 Taskboard - Backend API',
-      subheader: 'RESTful API | NestJS & PostgreSQL',
-      description: 'Built a robust backend system with comprehensive API endpoints for task management and team collaboration.',
+      header: '🛒 Pineapple E-commerce Platform',
+      subheader: 'Full-Stack MERN Application | Personal Project',
+      description: 'A men\'s clothing storefront built on the MERN stack. Customers browse and filter a live product catalog; admins manage products and categories through a protected dashboard.',
       achievements: [
-        'RESTful API architecture with NestJS framework.',
-        'PostgreSQL database with optimized queries.',
-        'JWT authentication and role-based access control.',
-        'Swagger API documentation.'
+        'Product catalog with search, category filters, and price-range filtering.',
+        'JWT authentication with role-based route guards (user vs. admin).',
+        'Admin dashboard for product/category management with image upload.'
       ],
-      tags: ['NestJS', 'Node.js', 'PostgreSQL', 'Docker', 'TypeScript'],
-      buttons: []
+      tags: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT'],
+      buttons: [
+        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Pineapple', icon: 'fab fa-github' }
+      ]
     },
     {
       header: '⌨️ Typathon - Angular Typing Game',

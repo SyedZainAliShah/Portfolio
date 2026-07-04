@@ -103,6 +103,7 @@
     </div>
   </div>
 
+
   <div class="info-grid languages-only-grid">
     <div class="info-card language-card" #animatedElement>
       <h2 class="section-title">
@@ -116,6 +117,46 @@
           </div>
         }
       </div>
+    </div>
+  </div>
+
+  <div class="activities-section">
+    <h2 class="section-title" #animatedElement>
+      <i class="fas fa-trophy"></i> Activities & Competitions
+    </h2>
+    <div class="activities-list">
+      @for (act of activities; track act.title) {
+        <div class="activity-card" #animatedElement appSpotlight>
+          @if (act.badge) {
+            <div class="activity-badge">{{ act.badge }}</div>
+          }
+          <div class="activity-head">
+            <i [class]="act.icon" class="activity-icon"></i>
+            <div class="activity-heading">
+              <h3>{{ act.title }}</h3>
+              <span class="activity-role">{{ act.role }} · {{ act.period }}</span>
+            </div>
+          </div>
+          <p class="activity-description">{{ act.description }}</p>
+          <ul class="activity-points">
+            @for (point of act.points; track point) {
+              <li>{{ point }}</li>
+            }
+          </ul>
+          <div class="activity-footer">
+            <div class="activity-tags">
+              @for (tag of act.tags; track tag) {
+                <span class="activity-tag">{{ tag }}</span>
+              }
+            </div>
+            @if (act.link) {
+              <a [href]="act.link.url" target="_blank" rel="noopener noreferrer" class="activity-link">
+                {{ act.link.label }} <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+            }
+          </div>
+        </div>
+      }
     </div>
   </div>
 
