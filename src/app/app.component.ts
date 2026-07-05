@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
+import { LanguageService } from './language.service';
 
 @Component({
   selector: 'app-root',
@@ -24,10 +25,10 @@ export class AppComponent {
   menuOpen = false;
 
   navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { en: 'Home', de: 'Start', href: '#home' },
+    { en: 'Projects', de: 'Projekte', href: '#projects' },
+    { en: 'About', de: 'Über mich', href: '#about' },
+    { en: 'Contact', de: 'Kontakt', href: '#contact' },
   ];
 
   socials = [
@@ -35,7 +36,7 @@ export class AppComponent {
     { label: 'GitHub', url: 'https://github.com/SyedZainAliShah', icon: 'fa-brands fa-github' },
   ];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, public lang: LanguageService) {}
 
   toggleMenu(): void { this.setMenu(!this.menuOpen); }
   closeMenu(): void { this.setMenu(false); }

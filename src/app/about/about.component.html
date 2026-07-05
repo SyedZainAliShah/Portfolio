@@ -1,7 +1,7 @@
 <section class="about-section">
   <div class="summary-section" #animatedElement>
     <div class="summary-header">
-      <h1>Software Engineer & Lifelong Learner</h1>
+      <h1>{{ lang.t('Software Engineer & Lifelong Learner', 'Software-Engineer & lebenslang Lernender') }}</h1>
     </div>
     <p class="summary-text">{{ professionalSummary }}</p>
   </div>
@@ -10,7 +10,7 @@
     
     <div class="info-card quick-facts-card" #animatedElement>
       <h2 class="section-title">
-        <i class="fas fa-lightbulb"></i> Quick Facts
+        <i class="fas fa-lightbulb"></i> {{ lang.t('Quick Facts', 'Kurzprofil') }}
       </h2>
       <div class="quick-facts-list">
         @for (fact of quickFacts; track fact.label) {
@@ -28,7 +28,7 @@
 
   <div class="experience-section">
     <h2 class="section-title" #animatedElement>
-      <i class="fas fa-briefcase"></i> Professional Experience
+      <i class="fas fa-briefcase"></i> {{ lang.t('Professional Experience', 'Berufserfahrung') }}
     </h2>
     <div class="experience-timeline">
       @for (job of experience; track job.role + job.company) {
@@ -51,7 +51,7 @@
 
   <div class="skills-section">
     <h2 class="section-title" #animatedElement>
-      <i class="fas fa-cogs"></i> Technical Expertise
+      <i class="fas fa-cogs"></i> {{ lang.t('Technical Expertise', 'Technische Expertise') }}
     </h2>
     
     <div class="skill-tabs" #animatedElement>
@@ -60,7 +60,7 @@
           class="skill-tab-btn" 
           [class.active]="category === selectedSkillCategory"
           (click)="filterSkills(category)">
-          {{ category }}
+          {{ category === 'All' ? lang.t('All', 'Alle') : category }}
         </button>
       }
     </div>
@@ -77,7 +77,7 @@
 
   <div class="education-section">
     <h2 class="section-title" #animatedElement>
-      <i class="fas fa-graduation-cap"></i> Education
+      <i class="fas fa-graduation-cap"></i> {{ lang.t('Education', 'Ausbildung') }}
     </h2>
     <div class="education-grid">
       @for (edu of education; track edu.degree) {
@@ -107,7 +107,7 @@
   <div class="info-grid languages-only-grid">
     <div class="info-card language-card" #animatedElement>
       <h2 class="section-title">
-        <i class="fas fa-language"></i> Languages
+        <i class="fas fa-language"></i> {{ lang.t('Languages', 'Sprachen') }}
       </h2>
       <div class="languages-list">
         @for (lang of languages; track lang.name) {
@@ -122,7 +122,7 @@
 
   <div class="activities-section">
     <h2 class="section-title" #animatedElement>
-      <i class="fas fa-trophy"></i> Activities & Competitions
+      <i class="fas fa-trophy"></i> {{ lang.t('Activities & Competitions', 'Aktivitäten & Wettbewerbe') }}
     </h2>
     <div class="activities-list">
       @for (act of activities; track act.title) {
@@ -164,8 +164,8 @@
   <div class="passion-section" #animatedElement>
     <img src="assets/comiccon.jpg" alt="Comic Convention event" class="passion-image">
     <div class="passion-content">
-        <h3>Passion Project: GeekCon Pakistan</h3>
-        <p>It really all started with a few friends who were massive fans of anime, comics, and all things geeky, just looking for a place to connect. That small idea grew into Geek Con, which has become Pakistan's biggest comic convention. For me, it's always been a passion project. The best part is seeing thousands of people come together, whether they're in full cosplay, showing off their art, or just there to soak it all in. It's about creating a space where everyone can celebrate what they love and find their community.</p>
+        <h3>{{ lang.t('Passion Project: GeekCon Pakistan', 'Herzensprojekt: GeekCon Pakistan') }}</h3>
+        <p>{{ lang.t("It really all started with a few friends who were massive fans of anime, comics, and all things geeky, just looking for a place to connect. That small idea grew into Geek Con, which has become Pakistan's biggest comic convention. For me, it's always been a passion project. The best part is seeing thousands of people come together, whether they're in full cosplay, showing off their art, or just there to soak it all in. It's about creating a space where everyone can celebrate what they love and find their community.", "Angefangen hat alles mit ein paar Freunden, die riesige Fans von Anime, Comics und allem Geekigen waren und einfach einen Ort zum Austauschen suchten. Aus dieser kleinen Idee wurde Geek Con, die inzwischen größte Comic-Convention Pakistans. Für mich war es immer ein Herzensprojekt. Das Schönste ist, Tausende Menschen zusammenkommen zu sehen – ob im vollen Cosplay, beim Zeigen ihrer Kunst oder einfach nur, um die Atmosphäre zu genießen. Es geht darum, einen Raum zu schaffen, in dem alle das feiern können, was sie lieben, und ihre Community finden.") }}</p>
         <div class="social-links">
             <a href="https://www.instagram.com/geekhaven.pk" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://x.com/GeekHaven" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>

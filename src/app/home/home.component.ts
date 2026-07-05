@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { LanguageService } from '../language.service';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,23 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit {
 
   typedText = '';
-  private titles = [
+  private titlesEn = [
     "Full-Stack Developer",
     "AI/LLM Engineer",
     "Angular Specialist",
     "Spring Boot Developer",
     "Cybersecurity Enthusiast"
   ];
+  private titlesDe = [
+    "Full-Stack-Entwickler",
+    "AI/LLM-Engineer",
+    "Angular-Spezialist",
+    "Spring-Boot-Entwickler",
+    "Cybersecurity-Enthusiast"
+  ];
+  private get titles(): string[] {
+    return this.lang.lang() === 'de' ? this.titlesDe : this.titlesEn;
+  }
   private titleIndex = 0;
   private charIndex = 0;
   private isDeleting = false;
@@ -28,7 +39,7 @@ export class HomeComponent implements OnInit {
   clickCount = 0;
   isFlipped = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, public lang: LanguageService) {}
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {

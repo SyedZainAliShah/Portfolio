@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, AfterViewInit, ViewChildren, QueryList, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { LanguageService } from '../language.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +11,7 @@ export class ContactComponent implements AfterViewInit {
   @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
   private observer!: IntersectionObserver;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, public lang: LanguageService) {}
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {

@@ -1,10 +1,10 @@
 <section class="projects-section">
   <div class="projects-header" #animatedElement>
-    <h1>My Projects</h1>
-    <p class="subtitle">A selection of projects that showcase my skills and interests in solving real-world problems.</p>
+    <h1>{{ lang.t('My Projects', 'Meine Projekte') }}</h1>
+    <p class="subtitle">{{ lang.t('A selection of projects that showcase my skills and interests in solving real-world problems.', 'Eine Auswahl an Projekten, die meine Fähigkeiten und mein Interesse am Lösen realer Probleme zeigen.') }}</p>
   </div>
 
-  <h2 class="tier-title" #animatedElement>Featured Projects</h2>
+  <h2 class="tier-title" #animatedElement>{{ lang.t('Featured Projects', 'Ausgewählte Projekte') }}</h2>
   <div class="tier-1-grid">
     @for (project of tier1Projects; track project.header) {
       <div class="project-card tier-1-card" #animatedElement [attr.aria-label]="project.header">
@@ -18,7 +18,7 @@
         <p class="project-description">{{ project.description }}</p>
 
         @if (project.achievements.length > 0) {
-          <h4 class="achievements-title">Key Achievements</h4>
+          <h4 class="achievements-title">{{ lang.t('Key Achievements', 'Wichtigste Erfolge') }}</h4>
           <ul class="achievements-list">
             @for (item of project.achievements; track $index) {
               <li>{{ item }}</li>
@@ -44,7 +44,7 @@
     }
   </div>
 
-  <h2 class="tier-title" #animatedElement>Additional Projects</h2>
+  <h2 class="tier-title" #animatedElement>{{ lang.t('Additional Projects', 'Weitere Projekte') }}</h2>
   <div class="tier-2-grid">
     @for (project of tier2Projects; track project.header) {
       <div class="project-card tier-2-card" #animatedElement [attr.aria-label]="project.header">
@@ -54,7 +54,7 @@
         <p class="project-description">{{ project.description }}</p>
 
         @if (project.achievements.length > 0) {
-          <h4 class="achievements-title">Key Features</h4>
+          <h4 class="achievements-title">{{ lang.t('Key Features', 'Wichtigste Funktionen') }}</h4>
           <ul class="achievements-list">
             @for (item of project.achievements; track $index) {
               <li>{{ item }}</li>

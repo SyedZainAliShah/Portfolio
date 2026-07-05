@@ -1,10 +1,16 @@
 <header class="site-header" [class.menu-open]="menuOpen">
+  <button class="lang-toggle" type="button" (click)="lang.toggle()"
+          [attr.aria-label]="lang.t('Switch to German', 'Switch to English')">
+    <span class="lang-opt" [class.active]="lang.lang() === 'en'">EN</span>
+    <span class="lang-sep">/</span>
+    <span class="lang-opt" [class.active]="lang.lang() === 'de'">DE</span>
+  </button>
   <button class="menu-toggle" type="button" (click)="toggleMenu()"
           [class.open]="menuOpen" [attr.aria-expanded]="menuOpen"
           aria-controls="staggered-menu" aria-label="Toggle navigation menu">
     <span class="menu-toggle-label">
-      <span class="mt-word mt-open">Menu</span>
-      <span class="mt-word mt-close">Close</span>
+      <span class="mt-word mt-open">{{ lang.t('Menu', 'Menü') }}</span>
+      <span class="mt-word mt-close">{{ lang.t('Close', 'Schließen') }}</span>
     </span>
     <span class="menu-toggle-icon" aria-hidden="true">
       <span></span>
@@ -13,7 +19,6 @@
   </button>
 </header>
 
-<!-- Staggered overlay menu -->
 <div class="stagger-menu" id="staggered-menu" [class.open]="menuOpen">
   <div class="stagger-backdrop" (click)="closeMenu()"></div>
 
@@ -26,14 +31,14 @@
         <a class="stagger-link" [href]="link.href" (click)="closeMenu()"
            [style.transition-delay.ms]="menuOpen ? (300 + i * 80) : 0">
           <span class="stagger-index">{{ '0' + (i + 1) }}</span>
-          <span class="stagger-text">{{ link.label }}</span>
+          <span class="stagger-text">{{ lang.t(link.en, link.de) }}</span>
         </a>
       }
     </nav>
 
     <div class="stagger-socials"
          [style.transition-delay.ms]="menuOpen ? (300 + navLinks.length * 80) : 0">
-      <span class="stagger-socials-label">Socials</span>
+      <span class="stagger-socials-label">{{ lang.t('Socials', 'Social Media') }}</span>
       <div class="stagger-socials-row">
         @for (s of socials; track s.url) {
           <a [href]="s.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="s.label">
@@ -64,9 +69,9 @@
 <footer>
   <div class="footer-content">
     <div class="footer-text">
-      <span>Built with Angular & TypeScript</span>
+      <span>{{ lang.t('Built with Angular & TypeScript', 'Erstellt mit Angular & TypeScript') }}</span>
       <span class="separator">|</span>
-      <span>Designed by Syed Zain Ali Shah &copy; 2026</span>
+      <span>{{ lang.t('Designed by Syed Zain Ali Shah © 2026', 'Gestaltet von Syed Zain Ali Shah © 2026') }}</span>
     </div>
   </div>
 </footer>

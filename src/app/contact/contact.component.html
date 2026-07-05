@@ -4,28 +4,28 @@
       <div class="header-icon">
         <i class="fas fa-paper-plane"></i>
       </div>
-      <h1>Get in Touch</h1>
-      <p>Have a question, an opportunity, or just want to say hi? My inbox is always open.</p>
+      <h1>{{ lang.t('Get in Touch', 'Kontakt aufnehmen') }}</h1>
+      <p>{{ lang.t('Have a question, an opportunity, or just want to say hi? My inbox is always open.', 'Eine Frage, eine Gelegenheit oder einfach nur Hallo sagen? Mein Postfach ist immer offen.') }}</p>
     </div>
     
     <form action="https://formspree.io/f/mrbekqdw" method="POST" class="contact-form">
       <div class="input-group">
         <input type="text" id="name" name="name" placeholder=" " required>
-        <label for="name">Your Name</label>
+        <label for="name">{{ lang.t('Your Name', 'Dein Name') }}</label>
       </div>
 
       <div class="input-group">
         <input type="email" id="email" name="_replyto" placeholder=" " required>
-        <label for="email">Your Email</label>
+        <label for="email">{{ lang.t('Your Email', 'Deine E-Mail') }}</label>
       </div>
 
       <div class="input-group">
         <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
-        <label for="message">Your Message</label>
+        <label for="message">{{ lang.t('Your Message', 'Deine Nachricht') }}</label>
       </div>
 
       <button type="submit" class="send-button">
-        Send Message
+        {{ lang.t('Send Message', 'Nachricht senden') }}
       </button>
     </form>
   </div>

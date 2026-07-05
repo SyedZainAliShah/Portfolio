@@ -9,13 +9,13 @@
       </h2>
 
       <p class="desc">
-        Full-stack engineer who ships AI into production. Angular &amp; Spring Boot by trade, RAG pipelines and local LLMs by passion, with a cybersecurity background. Currently pursuing M.Sc. Computer Science at Philipps-Universität Marburg, Germany.
+        {{ lang.t('Full-stack engineer who ships AI into production. Angular & Spring Boot by trade, RAG pipelines and local LLMs by passion, with a cybersecurity background. Currently pursuing M.Sc. Computer Science at Philipps-Universität Marburg, Germany.', 'Full-Stack-Entwickler, der KI in produktive Anwendungen bringt. Angular und Spring Boot aus Erfahrung, RAG-Pipelines und lokale LLMs aus Leidenschaft, mit einem Hintergrund in Cybersecurity. Aktuell im M.Sc. Informatik an der Philipps-Universität Marburg.') }}
       </p>
 
       <div class="action-row">
         <button type="button" class="action-btn" (click)="scrollTo('contact')">
           <i class="fa-solid fa-paper-plane"></i>
-          <span>Get in touch</span>
+          <span>{{ lang.t('Get in touch', 'Kontakt aufnehmen') }}</span>
         </button>
         <a href="https://www.linkedin.com/in/syedzainalishah" target="_blank" aria-label="LinkedIn" class="action-btn">
           <i class="fa-brands fa-linkedin"></i>
@@ -57,10 +57,10 @@
 
     <div class="card-footer">
       <div class="status-badge">
-        🇩🇪 Available for Werkstudent Positions
+        {{ lang.t('🇩🇪 Available for Werkstudent Positions', '🇩🇪 Verfügbar für Werkstudentenstellen') }}
       </div>
       <button type="button" class="action-btn btn-primary card-cta" (click)="scrollTo('projects')">
-        <span>View My Work</span>
+        <span>{{ lang.t('View My Work', 'Projekte ansehen') }}</span>
         <i class="fa-solid fa-arrow-down"></i>
       </button>
     </div>

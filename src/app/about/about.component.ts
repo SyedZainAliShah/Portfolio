@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, OnInit, QueryList, ViewChildren, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { LanguageService } from '../language.service';
 
 export interface Skill {
   name: string;
@@ -34,15 +35,19 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, public lang: LanguageService) {
     if (isPlatformBrowser(this.platformId)) {
       this.initIntersectionObserver();
     }
   }
 
-  professionalSummary = "A full-stack Software Engineer who ships AI into real products. My professional foundation is enterprise web development, building Angular frontends and Spring Boot backends for cybersecurity platforms, and my recent work brings LLMs into production: a fully local OWASP/GDPR code auditor (SecureAudit) and a RAG-powered digital-health assistant for Marburg University Hospital. I take full ownership of projects, from architecture to deployment, and care equally about measurable results and polished user experiences.";
+  private de(): boolean { return this.lang.lang() === 'de'; }
 
-  experience = [
+  private summaryEn = "A full-stack Software Engineer who ships AI into real products. My professional foundation is enterprise web development, building Angular frontends and Spring Boot backends for cybersecurity platforms, and my recent work brings LLMs into production: a fully local OWASP/GDPR code auditor (SecureAudit) and a RAG-powered digital-health assistant for Marburg University Hospital. I take full ownership of projects, from architecture to deployment, and care equally about measurable results and polished user experiences.";
+  private summaryDe = "Ein Full-Stack Software Engineer, der KI in echte Produkte bringt. Mein beruflicher Kern ist Enterprise-Webentwicklung – Angular-Frontends und Spring-Boot-Backends für Cybersecurity-Plattformen. Meine jüngste Arbeit bringt LLMs in die Produktion: ein vollständig lokaler OWASP/DSGVO-Code-Auditor (SecureAudit) und ein RAG-basierter Digital-Health-Assistent für das Universitätsklinikum Marburg. Ich übernehme volle Verantwortung für Projekte – von der Architektur bis zum Deployment – und lege gleichermaßen Wert auf messbare Ergebnisse und ausgefeilte Nutzererlebnisse.";
+  get professionalSummary(): string { return this.de() ? this.summaryDe : this.summaryEn; }
+
+  private experienceEn = [
     {
       role: 'Software Engineer',
       company: 'GhangorCloud (Cybersecurity)',
@@ -75,8 +80,42 @@ export class AboutComponent implements OnInit {
       ]
     }
   ];
+  private experienceDe = [
+    {
+      role: 'Software Engineer',
+      company: 'GhangorCloud (Cybersecurity)',
+      period: '03/2023 – 03/2024',
+      points: [
+        'Konzeption und Architektur zweier großer Produktinitiativen: die User-and-Entity-Behavior-Analytics-Plattform (UEBA) und ein neues Data-Compliance-Angebot (Angular/Java Spring Boot).',
+        'Entwicklung einer Reihe leistungsstarker Datenvisualisierungs-Komponenten (TypeScript/Kendo UI) zur Darstellung von Verhaltensanomalien, Risiko-Scores und Aktivitäts-Timelines.',
+        'Über 20 RESTful-APIs integriert, um einen hochverfügbaren, nahezu Echtzeit-Datenstrom für kontinuierliche Bedrohungsüberwachung sicherzustellen.',
+        'Den Analyseprozess verschlankt, indem ich mit UI/UX-Designern komplexe Cybersecurity-Anforderungen in eine intuitive, ergebnisorientierte Oberfläche übersetzt habe.'
+      ]
+    },
+    {
+      role: 'Associate Software Engineer',
+      company: 'GhangorCloud',
+      period: '09/2022 – 02/2023',
+      points: [
+        'Responsive Datenvisualisierungs-Komponenten entwickelt, darunter dynamische Diagramme und Data-Grids, in Angular und Kendo UI für die Echtzeit-Analyse großer Datensätze.',
+        'Frontend-Logik optimiert und kritische Stabilitäts-Bugs in der zentralen Angular-Codebasis behoben.',
+        'Usability und optische Gestaltung mehrerer datenzentrierter Anwendungen durch gezieltes Frontend-Styling und Layout-Verbesserungen (Bootstrap CSS) verbessert.'
+      ]
+    },
+    {
+      role: 'Praktikant Produktmanagement',
+      company: 'SphereWMS - Shispare',
+      period: '07/2021 – 09/2021',
+      points: [
+        'Kundenbedürfnisse in umsetzbare Entwicklungsaufgaben übersetzt, indem ich das Produkt-Backlog verwaltet und klare Sprint-Ziele definiert habe.',
+        'Agile Zeremonien (Scrum) moderiert, um die Teamabstimmung zu verbessern und eine termingerechte Feature-Lieferung sicherzustellen.',
+        'Detaillierte Flussdiagramme und Wireframes erstellt, die als technische Vorlage für das Entwicklungsteam dienten.'
+      ]
+    }
+  ];
+  get experience() { return this.de() ? this.experienceDe : this.experienceEn; }
 
-  education: Education[] = [
+  private educationEn: Education[] = [
     {
       degree: 'Master of Science in Computer Science',
       university: 'Philipps-Universität Marburg, Germany',
@@ -105,6 +144,36 @@ export class AboutComponent implements OnInit {
       }
     }
   ];
+  private educationDe: Education[] = [
+    {
+      degree: 'Master of Science in Informatik',
+      university: 'Philipps-Universität Marburg, Deutschland',
+      period: '2024 – heute',
+      logoUrl: 'assets/marburg.png',
+      courses: {
+        title: 'Relevante Module',
+        list: [
+          'IT Security', 'Cryptography', 'Understanding Deep Learning',
+          'Software Design Patterns', 'Big Data Analytics', 'Graphics Programming',
+          'Data Integration', 'Multimedia and Signal Processing'
+        ]
+      }
+    },
+    {
+      degree: 'Bachelor of Science in Informatik',
+      university: 'NUCES (National University of Computing and Emerging Sciences), Pakistan',
+      period: '2018 – 2022',
+      logoUrl: 'assets/fast.png',
+      courses: {
+        title: 'Grundlagenmodule',
+        list: [
+          'Data Structures & Algorithms', 'Object-Oriented Programming', 'Operating Systems',
+          'Computer Networks', 'Database Systems', 'Software Engineering', 'Computer Architecture'
+        ]
+      }
+    }
+  ];
+  get education(): Education[] { return this.de() ? this.educationDe : this.educationEn; }
 
   allSkills: Skill[] = [
     { name: 'Angular', category: 'Frontend', icon: 'fab fa-angular' },
@@ -161,7 +230,7 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  activities = [
+  private activitiesEn = [
     {
       title: 'iGEM 2026: Team Marburg',
       role: 'Dry Lab & Wiki Contributor',
@@ -178,20 +247,52 @@ export class AboutComponent implements OnInit {
       link: { label: 'About iGEM', url: 'https://igem.org/' }
     }
   ];
+  private activitiesDe = [
+    {
+      title: 'iGEM 2026: Team Marburg',
+      role: 'Dry-Lab- & Wiki-Mitarbeit',
+      period: '2026 – heute',
+      badge: 'Finale in Paris · Nov 2026',
+      icon: 'fas fa-dna',
+      description: "Mitarbeit im Team meiner Universität für iGEM 2026, den weltgrößten Wettbewerb für synthetische Biologie, mit dem Grand-Jamboree-Finale im November in Paris. Es ist ein interdisziplinäres Team aus Wet Lab und Dry Lab.",
+      points: [
+        'Mitarbeit in einem großen interdisziplinären Team an Tools, die Proteinstrukturen aus AlphaFold-Daten visualisieren.',
+        'Aufbau und Pflege des Team-Wikis, das das Projekt der weltweiten iGEM-Community präsentiert.',
+        'Teil des Dry-Lab-Arbeitsstroms (computergestützt) und bringe eine Software-Engineering-Perspektive in ein biologisch geführtes Projekt ein.'
+      ],
+      tags: ['Synthetic Biology', 'Dry Lab', 'AlphaFold', 'Teamwork'],
+      link: { label: 'Über iGEM', url: 'https://igem.org/' }
+    }
+  ];
+  get activities() { return this.de() ? this.activitiesDe : this.activitiesEn; }
 
-  languages = [
+  private languagesEn = [
     { name: 'English', proficiency: 'C2 (Fluent)' },
     { name: 'Urdu', proficiency: 'Native Speaker' },
     { name: 'German', proficiency: 'B1 (Actively Learning)' }
   ];
+  private languagesDe = [
+    { name: 'Englisch', proficiency: 'C2 (fließend)' },
+    { name: 'Urdu', proficiency: 'Muttersprache' },
+    { name: 'Deutsch', proficiency: 'B1 (wird aktiv gelernt)' }
+  ];
+  get languages() { return this.de() ? this.languagesDe : this.languagesEn; }
 
-  quickFacts = [
+  private quickFactsEn = [
     { label: 'Location', value: 'Marburg, Germany', icon: 'fas fa-map-marker-alt' },
     { label: 'Current Status', value: 'M.Sc. Computer Science Student', icon: 'fas fa-graduation-cap' },
     { label: 'Primary Stack', value: 'Angular & Spring Boot Specialist', icon: 'fas fa-laptop-code' },
     { label: 'Language Skills', value: 'English C2, German B1', icon: 'fas fa-globe' },
     { label: 'Availability', value: 'Werkstudent and Internship (20hrs/week)', icon: 'fas fa-calendar-check' }
   ];
+  private quickFactsDe = [
+    { label: 'Standort', value: 'Marburg, Deutschland', icon: 'fas fa-map-marker-alt' },
+    { label: 'Aktueller Status', value: 'M.Sc.-Informatik-Student', icon: 'fas fa-graduation-cap' },
+    { label: 'Haupt-Stack', value: 'Angular- & Spring-Boot-Spezialist', icon: 'fas fa-laptop-code' },
+    { label: 'Sprachkenntnisse', value: 'Englisch C2, Deutsch B1', icon: 'fas fa-globe' },
+    { label: 'Verfügbarkeit', value: 'Werkstudent und Praktikum (20 Std./Woche)', icon: 'fas fa-calendar-check' }
+  ];
+  get quickFacts() { return this.de() ? this.quickFactsDe : this.quickFactsEn; }
 
   private initIntersectionObserver() {
     const options = { root: null, rootMargin: '0px', threshold: 0.1 };
