@@ -28,7 +28,7 @@ export class ProjectsComponent implements AfterViewInit {
   // ── TIER 1 (English) ──────────────────────────────────────────────
   private tier1En: Project[] = [
     {
-      header: '🛡️ SecureAudit - Agentic Security Auditor',
+      header: 'SecureAudit - Agentic Security Auditor',
       subheader: 'AI/LLM Project | Python · FastAPI · Angular 19 · Groq/Gemini/Ollama',
       description: 'An agentic OWASP Top 10 & GDPR auditor: it plans, runs deterministic tools (static analysis + live OSV.dev CVE lookups), then has an LLM review the code and the tool findings, streaming every step in a live timeline. Local-first with Ollama, or hosted on free-tier inference. Try the live demo.',
       achievements: [
@@ -46,7 +46,7 @@ export class ProjectsComponent implements AfterViewInit {
       ]
     },
     {
-      header: '🔐 UEBA Cybersecurity Dashboard',
+      header: 'UEBA Cybersecurity Dashboard',
       subheader: 'Professional Experience | GhangorCloud | March 2023 - March 2024',
       description: 'Built a major enterprise-grade security analytics feature processing thousands of events daily, which resulted in a 40% reduction in analyst investigation time. This project was a cornerstone of my professional development, offering extensive experience in building robust, scalable front-end systems for mission-critical security applications. This work is not publicly accessible on GitHub.',
       achievements: [
@@ -58,7 +58,7 @@ export class ProjectsComponent implements AfterViewInit {
       buttons: []
     },
     {
-      header: '🏥 DiGA (Digital Health Application)',
+      header: 'DiGA (Digital Health Application)',
       subheader: 'Medical Informatics Project | University of Marburg Hospital | Summer Semester 2025',
       description: 'Developed a Django web application for physicians to collect, organize, and present comprehensive information on Digital Health Applications (DiGAs). The application features semantic search using Qdrant and deployment on Microsoft Azure.',
       achievements: [
@@ -76,7 +76,7 @@ export class ProjectsComponent implements AfterViewInit {
   // ── TIER 1 (German) ───────────────────────────────────────────────
   private tier1De: Project[] = [
     {
-      header: '🛡️ SecureAudit - Agentic Security Auditor',
+      header: 'SecureAudit - Agentic Security Auditor',
       subheader: 'AI/LLM-Projekt | Python · FastAPI · Angular 19 · Groq/Gemini/Ollama',
       description: 'Ein agentischer OWASP-Top-10- und DSGVO-Auditor: Er plant, führt deterministische Tools aus (statische Analyse + Live-CVE-Abfragen über OSV.dev) und lässt anschließend ein LLM den Code und die Tool-Ergebnisse prüfen – jeder Schritt wird in einer Live-Timeline gestreamt. Local-first mit Ollama oder gehostet auf kostenloser Inferenz. Probier die Live-Demo aus.',
       achievements: [
@@ -94,7 +94,7 @@ export class ProjectsComponent implements AfterViewInit {
       ]
     },
     {
-      header: '🔐 UEBA Cybersecurity Dashboard',
+      header: 'UEBA Cybersecurity Dashboard',
       subheader: 'Berufserfahrung | GhangorCloud | März 2023 – März 2024',
       description: 'Entwicklung einer umfangreichen Security-Analytics-Funktion auf Enterprise-Niveau, die täglich Tausende Events verarbeitet und die Analysezeit der Analysten um 40 % reduziert hat. Dieses Projekt war ein Grundstein meiner beruflichen Entwicklung und brachte umfangreiche Erfahrung im Aufbau robuster, skalierbarer Frontend-Systeme für sicherheitskritische Anwendungen. Diese Arbeit ist auf GitHub nicht öffentlich zugänglich.',
       achievements: [
@@ -106,7 +106,7 @@ export class ProjectsComponent implements AfterViewInit {
       buttons: []
     },
     {
-      header: '🏥 DiGA (Digital Health Application)',
+      header: 'DiGA (Digital Health Application)',
       subheader: 'Medizininformatik-Projekt | Universitätsklinikum Marburg | Sommersemester 2025',
       description: 'Entwicklung einer Django-Webanwendung, mit der Ärztinnen und Ärzte umfassende Informationen zu Digitalen Gesundheitsanwendungen (DiGAs) sammeln, organisieren und präsentieren können. Die Anwendung bietet semantische Suche mit Qdrant und wird auf Microsoft Azure betrieben.',
       achievements: [
@@ -124,7 +124,7 @@ export class ProjectsComponent implements AfterViewInit {
   // ── TIER 2 (English) ──────────────────────────────────────────────
   private tier2En: Project[] = [
     {
-      header: '♻️ ERASE - Trash Detection System',
+      header: 'ERASE - Trash Detection System',
       subheader: 'Machine Learning Project | YOLOv4 & Kotlin',
       description: 'Developed an end-to-end computer vision application for real-time trash classification, achieving 92% accuracy across 5 waste categories.',
       achievements: [
@@ -138,7 +138,7 @@ export class ProjectsComponent implements AfterViewInit {
       ]
     },
     {
-      header: '🛒 Pineapple E-commerce Platform',
+      header: 'Pineapple E-commerce Platform',
       subheader: 'Full-Stack MERN Application | Personal Project',
       description: 'A men\'s clothing storefront built on the MERN stack. Customers browse and filter a live product catalog; admins manage products and categories through a protected dashboard.',
       achievements: [
@@ -152,7 +152,7 @@ export class ProjectsComponent implements AfterViewInit {
       ]
     },
     {
-      header: '⌨️ Typathon - Angular Typing Game',
+      header: 'Typathon - Angular Typing Game',
       subheader: 'Frontend Project | Angular & TypeScript',
       description: 'A clean typing practice game built with Angular and TypeScript, playable in the browser via GitHub Pages.',
       achievements: [
@@ -170,7 +170,7 @@ export class ProjectsComponent implements AfterViewInit {
   // ── TIER 2 (German) ───────────────────────────────────────────────
   private tier2De: Project[] = [
     {
-      header: '♻️ ERASE - Trash Detection System',
+      header: 'ERASE - Trash Detection System',
       subheader: 'Machine-Learning-Projekt | YOLOv4 & Kotlin',
       description: 'End-to-End-Computer-Vision-Anwendung zur Echtzeit-Klassifizierung von Müll entwickelt, mit 92 % Genauigkeit über 5 Abfallkategorien.',
       achievements: [
@@ -184,7 +184,7 @@ export class ProjectsComponent implements AfterViewInit {
       ]
     },
     {
-      header: '🛒 Pineapple E-commerce Platform',
+      header: 'Pineapple E-commerce Platform',
       subheader: 'Full-Stack-MERN-Anwendung | Privates Projekt',
       description: 'Ein Online-Shop für Herrenmode auf Basis des MERN-Stacks. Kundinnen und Kunden durchsuchen und filtern einen Live-Produktkatalog; Admins verwalten Produkte und Kategorien über ein geschütztes Dashboard.',
       achievements: [
@@ -198,7 +198,7 @@ export class ProjectsComponent implements AfterViewInit {
       ]
     },
     {
-      header: '⌨️ Typathon - Angular Typing Game',
+      header: 'Typathon - Angular Typing Game',
       subheader: 'Frontend-Projekt | Angular & TypeScript',
       description: 'Ein aufgeräumtes Tipp-Übungsspiel mit Angular und TypeScript, im Browser über GitHub Pages spielbar.',
       achievements: [
