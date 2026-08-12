@@ -469,27 +469,11 @@
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-.profile-image-container.is-flipped .flipper {
-  transform: rotateY(180deg);
-}
-.flipper-front, .flipper-back {
+.flipper-front {
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 50%;
-}
-.flipper-back {
-  background-color: #2a2a3a;
-  transform: rotateY(180deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.flipper-back img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   border-radius: 50%;
 }
