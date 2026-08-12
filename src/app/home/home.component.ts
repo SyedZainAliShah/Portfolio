@@ -36,6 +36,9 @@ export class HomeComponent implements OnInit {
   private deletingSpeed = 50;
   private pauseTime = 2000;
 
+  clickCount = 0;
+  isFlipped = false;
+
   constructor(@Inject(PLATFORM_ID) private platformId: Object, public lang: LanguageService) {}
 
   ngOnInit() {
@@ -76,4 +79,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  onImageClick() {
+    this.clickCount++;
+
+    if (this.clickCount >= 15) {
+      this.isFlipped = true;
+      setTimeout(() => {
+        this.isFlipped = false;
+        this.clickCount = 0;
+      }, 3000);
+    }
+  }
 }
