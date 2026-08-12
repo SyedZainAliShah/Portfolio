@@ -124,6 +124,22 @@ export class ProjectsComponent implements AfterViewInit {
   // ── TIER 2 (English) ──────────────────────────────────────────────
   private tier2En: Project[] = [
     {
+      header: 'Perspective - Year-at-a-Glance Calendar',
+      subheader: 'Full-Stack Project | React · Cloudflare Pages Functions · D1',
+      description: 'A calendar that puts all 365 days on one screen as a single grid, so the shape and density of a year is visible without scrolling month by month. Runs entirely on Cloudflare\'s free tier, with no third-party auth or database provider. Try the live demo.',
+      achievements: [
+        'Year, month, week and day views over one dataset, with milestone preparation ramps and habit tracking rendered as grid pips.',
+        'Two-way Google Calendar sync and ICS import/export, with custom daily/weekly/monthly/yearly recurrence rules.',
+        'Payload-free Web Push reminders: the notification wakes a service worker that fetches the details, dispatched by a separate cron Worker.',
+        'Installable as an offline-capable PWA, backed by D1 (SQLite) through file-routed Pages Functions.'
+      ],
+      tags: ['React', 'Vite', 'Cloudflare Pages', 'D1', 'Serverless', 'PWA', 'Web Push', 'OAuth'],
+      buttons: [
+        { label: 'Live Demo', url: 'https://perspective-do2.pages.dev', icon: 'fas fa-arrow-up-right-from-square', styleClass: 'btn-primary' },
+        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Perspective', icon: 'fab fa-github' }
+      ]
+    },
+    {
       header: 'ERASE - Trash Detection System',
       subheader: 'Machine Learning Project | YOLOv4 & Kotlin',
       description: 'Developed an end-to-end computer vision application for real-time trash classification, achieving 92% accuracy across 5 waste categories.',
@@ -150,25 +166,27 @@ export class ProjectsComponent implements AfterViewInit {
       buttons: [
         { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Pineapple', icon: 'fab fa-github' }
       ]
-    },
-    {
-      header: 'Typathon - Angular Typing Game',
-      subheader: 'Frontend Project | Angular & TypeScript',
-      description: 'A clean typing practice game built with Angular and TypeScript, playable in the browser via GitHub Pages.',
-      achievements: [
-        'Live per-character feedback: every keystroke graded correct/incorrect in real time.',
-        'Fresh practice text generated on every round with Faker.js.',
-        'Deployed as a static Angular build on GitHub Pages.'
-      ],
-      tags: ['Angular', 'TypeScript', 'CSS'],
-      buttons: [
-        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Typathon', icon: 'fab fa-github' }
-      ]
     }
   ];
 
   // ── TIER 2 (German) ───────────────────────────────────────────────
   private tier2De: Project[] = [
+    {
+      header: 'Perspective - Jahreskalender auf einen Blick',
+      subheader: 'Full-Stack-Projekt | React · Cloudflare Pages Functions · D1',
+      description: 'Ein Kalender, der alle 365 Tage als ein einziges Raster auf einen Bildschirm bringt, sodass Form und Dichte eines Jahres sichtbar werden, ohne Monat für Monat zu scrollen. Läuft vollständig auf der kostenlosen Cloudflare-Stufe, ohne externen Auth- oder Datenbankanbieter. Probier die Live-Demo aus.',
+      achievements: [
+        'Jahres-, Monats-, Wochen- und Tagesansicht auf einem Datensatz, mit Vorbereitungs-Ramps für Meilensteine und Habit-Tracking als Raster-Pips.',
+        'Bidirektionale Google-Calendar-Synchronisierung und ICS-Import/-Export, mit eigenen Wiederholungsregeln (täglich/wöchentlich/monatlich/jährlich).',
+        'Web-Push-Erinnerungen ohne Payload: Die Benachrichtigung weckt einen Service Worker, der die Details nachlädt, ausgelöst von einem separaten Cron-Worker.',
+        'Als offlinefähige PWA installierbar, auf Basis von D1 (SQLite) über dateibasiert geroutete Pages Functions.'
+      ],
+      tags: ['React', 'Vite', 'Cloudflare Pages', 'D1', 'Serverless', 'PWA', 'Web Push', 'OAuth'],
+      buttons: [
+        { label: 'Live Demo', url: 'https://perspective-do2.pages.dev', icon: 'fas fa-arrow-up-right-from-square', styleClass: 'btn-primary' },
+        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Perspective', icon: 'fab fa-github' }
+      ]
+    },
     {
       header: 'ERASE - Trash Detection System',
       subheader: 'Machine-Learning-Projekt | YOLOv4 & Kotlin',
@@ -195,20 +213,6 @@ export class ProjectsComponent implements AfterViewInit {
       tags: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT'],
       buttons: [
         { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Pineapple', icon: 'fab fa-github' }
-      ]
-    },
-    {
-      header: 'Typathon - Angular Typing Game',
-      subheader: 'Frontend-Projekt | Angular & TypeScript',
-      description: 'Ein aufgeräumtes Tipp-Übungsspiel mit Angular und TypeScript, im Browser über GitHub Pages spielbar.',
-      achievements: [
-        'Live-Feedback pro Zeichen: Jeder Tastenanschlag wird in Echtzeit als richtig/falsch bewertet.',
-        'Bei jeder Runde neuer Übungstext, generiert mit Faker.js.',
-        'Als statischer Angular-Build auf GitHub Pages veröffentlicht.'
-      ],
-      tags: ['Angular', 'TypeScript', 'CSS'],
-      buttons: [
-        { label: 'GitHub', url: 'https://github.com/SyedZainAliShah/Typathon', icon: 'fab fa-github' }
       ]
     }
   ];
